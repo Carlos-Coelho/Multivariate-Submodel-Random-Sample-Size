@@ -1,0 +1,4022 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    169858,       4014]
+NotebookOptionsPosition[    169552,       4001]
+NotebookOutlinePosition[    169899,       4016]
+CellTagsIndexPosition[    169856,       4013]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   StyleBox[
+    RowBox[{
+     StyleBox["(",
+      FontWeight->"Bold"], "*"}]], 
+   RowBox[{
+    RowBox[{"**", "**", "**"}], "*", 
+    RowBox[{
+    "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**",
+      "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", 
+     "**", "**"}], "*", 
+    RowBox[{"**", "**", "**", "**"}]}], "******)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"User", " ", "modules", " ", 
+     RowBox[{"are", ":", "\[IndentingNewLine]", "  ", 
+      RowBox[{
+       RowBox[{"-", " ", "modules"}], " ", "ExCDFPoiEven"}]}]}], ",", " ", 
+    "ExCDFBinEven", ",", " ", 
+    StyleBox["ExCDFHGEven",
+     FontWeight->"Bold"], 
+    StyleBox[",",
+     FontWeight->"Bold"], 
+    StyleBox[" ",
+     FontWeight->"Bold"], 
+    StyleBox[
+     RowBox[{"ExCDFNegBinEven", " ", "and", " ", "ExCDFNegHGEven"}],
+     FontWeight->"Bold"], 
+    StyleBox[",",
+     FontWeight->"Bold"], 
+    StyleBox[" ",
+     FontWeight->"Bold"], 
+    StyleBox[
+     RowBox[{
+      RowBox[{
+      "used", " ", "to", " ", "compute", " ", "the", " ", "exact", " ", "CDF",
+        " ", "and", " ", "exact", " ", "p"}], "-", 
+      RowBox[{
+      "values", " ", "for", " ", "the", " ", "distribution", " ", "in", " ", 
+       "Theorem", " ", "2.1"}]}],
+     FontWeight->"Bold"], 
+    StyleBox[",",
+     FontWeight->"Bold"], 
+    StyleBox[" ",
+     FontWeight->"Bold"], 
+    StyleBox[
+     RowBox[{
+     "for", " ", "even", " ", "p1", " ", "or", " ", "even", " ", "p22"}],
+     FontWeight->"Bold"], 
+    StyleBox[",",
+     FontWeight->"Bold"], 
+    StyleBox[" ",
+     FontWeight->"Bold"], 
+    StyleBox[
+     RowBox[{
+      RowBox[{
+       RowBox[{
+       "for", " ", "each", " ", "of", " ", "the", " ", "5", " ", "sampling", 
+        " ", "distributions", " ", "in", " ", "the", " ", "paper"}], ";"}], 
+      " ", "\[IndentingNewLine]", "\[IndentingNewLine]", "\t", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", " ", "module"}], " ", "ExCDFRSSEven", " ", "which", " ",
+          "may", " ", "be", " ", "used", " ", "to", " ", "compute", " ", 
+         "the", " ", "exact", " ", "CDF", " ", "and", " ", "p"}], "-", 
+        RowBox[{
+        "values", " ", "for", " ", "the", " ", "distribution", " ", "in", " ",
+          "Theorem", " ", "2.1", " ", "for", " ", "any", " ", "of", " ", 
+         "the", " ", "sampling", " ", "distributions", " ", 
+         RowBox[{"(", 
+          RowBox[{
+          "for", " ", "even", " ", "p1", " ", "or", " ", "even", " ", 
+           "p222"}], ")"}]}]}], ";"}], "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", "\t", 
+      RowBox[{
+       RowBox[{"-", " ", "modules"}], " ", "NECDFPoiOdd"}]}],
+     FontWeight->"Bold"], 
+    StyleBox[",",
+     FontWeight->"Bold"], 
+    StyleBox[" ",
+     FontWeight->"Bold"], 
+    StyleBox["NECDFBinOdd",
+     FontWeight->"Bold"], 
+    StyleBox[",",
+     FontWeight->"Bold"], 
+    StyleBox[" ",
+     FontWeight->"Bold"], 
+    StyleBox["NECDFHGOdd",
+     FontWeight->"Bold"], 
+    StyleBox[",",
+     FontWeight->"Bold"], 
+    StyleBox[" ",
+     FontWeight->"Bold"], 
+    StyleBox[
+     RowBox[{"NECDFNegBinOdd", " ", "and", " ", "NECDFNegHGOdd"}],
+     FontWeight->"Bold"], 
+    StyleBox[",",
+     FontWeight->"Bold"], 
+    StyleBox[" ",
+     FontWeight->"Bold"], 
+    StyleBox[
+     RowBox[{
+      RowBox[{"used", " ", "to", " ", "compute", " ", "the", " ", "near"}], 
+      "-", 
+      RowBox[{"exact", " ", "CDF", " ", "and", " ", "near"}], "-", 
+      RowBox[{"exact", " ", "p"}], "-", 
+      RowBox[{
+      "values", " ", "for", " ", "the", " ", "distribution", " ", "in", " ", 
+       "Theorem", " ", "2.2"}]}],
+     FontWeight->"Bold"], 
+    StyleBox[",",
+     FontWeight->"Bold"], 
+    StyleBox[" ",
+     FontWeight->"Bold"], 
+    StyleBox[
+     RowBox[{
+     "for", " ", "odd", " ", "p1", " ", "and", " ", "odd", " ", "p22"}],
+     FontWeight->"Bold"], 
+    StyleBox[",",
+     FontWeight->"Bold"], 
+    StyleBox[" ",
+     FontWeight->"Bold"], 
+    StyleBox[
+     RowBox[{
+      RowBox[{
+       RowBox[{
+       "for", " ", "each", " ", "of", " ", "the", " ", "5", " ", "sampling", 
+        " ", "distributions", " ", "in", " ", "the", " ", "paper"}], ";"}], 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", "\t", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", " ", 
+         RowBox[{
+         "module", " ", "NECDFRSSOdd", " ", "which", " ", "may", " ", "be", 
+          " ", "used", " ", "to", " ", "compute", " ", "the", " ", "near"}]}],
+         "-", 
+        RowBox[{"exact", " ", "CDF", " ", "and", " ", "p"}], "-", 
+        RowBox[{
+        "values", " ", "for", " ", "the", " ", "distribution", " ", "in", " ",
+          "Theorem", " ", "2.2", " ", "for", " ", "any", " ", "of", " ", 
+         "the", " ", "sampling", " ", "distributions", " ", 
+         RowBox[{"(", 
+          RowBox[{
+          "for", " ", "both", " ", "odd", " ", "p1", " ", "and", " ", "odd", 
+           " ", "p22"}], ")"}]}]}], ";"}], "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", "\t", 
+      RowBox[{
+       RowBox[{"-", " ", "modules"}], " ", "ExCDFOrigPoiEven"}]}],
+     FontWeight->"Bold"], 
+    StyleBox[",",
+     FontWeight->"Bold"], 
+    StyleBox[" ",
+     FontWeight->"Bold"], "ExCDFOrigBinEven", ",", " ", 
+    StyleBox["ExCDFOrigHGEven",
+     FontWeight->"Bold"], 
+    StyleBox[",",
+     FontWeight->"Bold"], 
+    StyleBox[" ",
+     FontWeight->"Bold"], 
+    StyleBox[
+     RowBox[{
+      RowBox[{
+      "ExCDFOrigNegBinEven", " ", "and", " ", "ExCDFOrigNegHGEven", " ", 
+       "used", " ", "to", " ", "compute", " ", "the", " ", "exact", " ", 
+       "CDF", " ", "and", " ", "exact", " ", "p"}], "-", 
+      RowBox[{
+      "values", " ", "for", " ", "the", " ", "distribution", " ", "of", " ", 
+       "the", " ", "non"}], "-", 
+      RowBox[{"partial", " ", "Lambda"}]}],
+     FontWeight->"Bold"], 
+    StyleBox[",",
+     FontWeight->"Bold"], 
+    StyleBox[" ",
+     FontWeight->"Bold"], 
+    StyleBox[
+     RowBox[{
+     "used", " ", "to", " ", "test", " ", "the", " ", "fit", " ", "of", " ", 
+      "the", " ", "original", " ", "or", " ", "complete", " ", "model"}],
+     FontWeight->"Bold"], 
+    StyleBox[",",
+     FontWeight->"Bold"], 
+    StyleBox[" ",
+     FontWeight->"Bold"], 
+    StyleBox[
+     RowBox[{
+     "for", " ", "even", " ", "p1", " ", "or", " ", "even", " ", "p2"}],
+     FontWeight->"Bold"], 
+    StyleBox[",",
+     FontWeight->"Bold"], 
+    StyleBox[" ",
+     FontWeight->"Bold"], 
+    StyleBox[
+     RowBox[{
+     "for", " ", "the", " ", "5", " ", "sampling", " ", "distributions", " ", 
+      "in", " ", "the", " ", "paper", " ", 
+      RowBox[{"(", 
+       RowBox[{"see", " ", "file", " ", 
+        RowBox[{"Application", ".", "nb"}]}], ")"}]}],
+     FontWeight->"Bold"], 
+    StyleBox[",",
+     FontWeight->"Bold"], 
+    StyleBox[" ",
+     FontWeight->"Bold"], 
+    StyleBox[
+     RowBox[{
+      RowBox[{
+       RowBox[{
+       "and", " ", "module", " ", "ExCDFOrigRSSEven", " ", "which", " ", 
+        "may", " ", "be", " ", "used", " ", "for", " ", "any", " ", "of", " ",
+         "the", " ", "5", " ", "sampling", " ", "distributions"}], ";"}], 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", "\t", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", " ", "module"}], " ", "NECDFOrigRSSOdd", " ", "which", 
+        " ", "may", " ", "be", " ", "used", " ", "to", " ", "compute", " ", 
+        "the", " ", "near"}], "-", 
+       RowBox[{"exact", " ", "CDF", " ", "and", " ", "p"}], "-", 
+       RowBox[{
+       "values", " ", "for", " ", "the", " ", "test", " ", "of", " ", "fit", 
+        " ", "of", " ", "the", " ", "original", " ", "or", " ", "complete", 
+        " ", "model", " ", "for", " ", "odd", " ", "p1", " ", "and", " ", 
+        "odd", " ", "p2"}]}]}],
+     FontWeight->"Bold"], 
+    StyleBox[",",
+     FontWeight->"Bold"], 
+    StyleBox[" ",
+     FontWeight->"Bold"], 
+    StyleBox[
+     RowBox[{
+      RowBox[{
+       RowBox[{
+       "for", " ", "any", " ", "of", " ", "the", " ", "5", " ", "sampling", 
+        " ", "distributions", " ", "in", " ", "the", " ", "paper"}], ";"}], 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", "\t", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", " ", "modules"}], " ", "ExCDFNREven", " ", "and", " ", 
+        "NECDFNROdd", " ", "may", " ", "be", " ", "used", " ", "to", " ", 
+        "compute", " ", "respectively", " ", "the", " ", "exact", " ", "CDF", 
+        " ", "and", " ", "p"}], "-", 
+       RowBox[{"value", " ", 
+        RowBox[{"(", 
+         RowBox[{
+         "for", " ", "even", " ", "p1", " ", "or", " ", "even", " ", "p22"}], 
+         ")"}], " ", "or", " ", "the", " ", "near"}], "-", 
+       RowBox[{"exact", " ", "CDF", " ", "and", " ", "p"}], "-", 
+       RowBox[{"value", " ", 
+        RowBox[{"(", 
+         RowBox[{
+         "for", " ", "odd", " ", "p1", " ", "and", " ", "odd", " ", "p22"}], 
+         ")"}], " ", "of", " ", "Lambda", " ", "for", " ", "the", " ", 
+        "non"}], "-", 
+       RowBox[{"random", " ", "sample", " ", "size", " ", "case", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+          "for", " ", "comparison", " ", "with", " ", "the", " ", "values"}], 
+          ",", " ", 
+          RowBox[{
+           RowBox[{"namely", " ", "the", " ", "p"}], "-", 
+           RowBox[{"value", " ", "of", " ", "the", " ", "random"}], "-", 
+           RowBox[{"sample", " ", "size", " ", "case"}]}]}], ")"}]}]}], 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{
+      "Help", " ", "may", " ", "be", " ", "obtained", " ", "on", " ", "any", 
+       " ", "of", " ", "these", " ", "modules", " ", "by", " ", "typing", " ",
+        "its", " ", "name", " ", "preceded", " ", "by", " ", "a", " ", 
+       "question", " ", "mark"}]}],
+     FontWeight->"Bold"], 
+    StyleBox[",",
+     FontWeight->"Bold"], 
+    StyleBox[" ",
+     FontWeight->"Bold"], 
+    StyleBox[
+     RowBox[{
+      RowBox[{"like", " ", "?", "ExCDFHGEven"}], " ", "and", " ", "executing",
+       " ", "such", " ", "a", " ", 
+      RowBox[{"command", "."}]}],
+     FontWeight->"Bold"]}], 
+   StyleBox["\[IndentingNewLine]",
+    FontWeight->"Bold"], 
+   StyleBox["*)",
+    FontWeight->"Bold"]}], 
+  StyleBox["\[IndentingNewLine]",
+   FontWeight->"Bold"], 
+  StyleBox["\[IndentingNewLine]",
+   FontWeight->"Bold"], 
+  RowBox[{
+   StyleBox[
+    RowBox[{
+     StyleBox["(",
+      FontWeight->"Bold"], "*"}]], 
+   RowBox[{
+    RowBox[{"**", "**", "**"}], "*", 
+    RowBox[{
+    "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**",
+      "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", 
+     "**", "**"}], "*", 
+    RowBox[{"**", "**", "**", "**"}]}], "******)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Makeveccol", "[", "list_", "]"}], ":=", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"list", "[", 
+        RowBox[{"[", "i", "]"}], "]"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "1", ",", 
+        RowBox[{"Length", "[", "list", "]"}]}], "}"}]}], "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "Part", " ", "of", " ", "the", " ", "CF", " ", "of", " ", "Log", " ", 
+      "Lambda", " ", "to", " ", "be", " ", "approximated", " ", "when", " ", 
+      "building", " ", "near"}], "-", 
+     RowBox[{"exact", " ", 
+      RowBox[{"distributions", " ", "--"}], " ", "odd", " ", "p1", " ", "and",
+       " ", "odd", " ", "p22"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", "  ", 
+    RowBox[{"last", " ", "expression", " ", "in", " ", 
+     RowBox[{"(", "20", ")"}], " ", "and", " ", "Theorem", " ", "2.2"}], "  ",
+     "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"see", " ", "module", " ", "MakeWeights"}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"CFLogL2", "[", 
+     RowBox[{"n_", ",", "p2_", ",", "p22_", ",", "t_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"p21", "=", 
+        RowBox[{"p2", "-", "p22"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Gamma", "[", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"n", "-", "p21", "-", "1"}], ")"}], "/", "2"}], "]"}], "*", 
+        RowBox[{
+         RowBox[{"Gamma", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"n", "-", "p21", "-", "2"}], ")"}], "/", "2"}], "-", 
+           RowBox[{"I", "*", "t"}]}], "]"}], "/", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"Gamma", "[", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"n", "-", "p21", "-", "2"}], ")"}], "/", "2"}], "]"}], 
+           "*", 
+           RowBox[{"Gamma", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"n", "-", "p21", "-", "1"}], ")"}], "/", "2"}], "-", 
+             RowBox[{"I", "*", "t"}]}], "]"}]}], ")"}]}]}]}]}], "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "Module", " ", "to", " ", "compute", " ", "the", " ", "weights", " ", 
+      "for", " ", "the", " ", "near"}], "-", 
+     RowBox[{"exact", " ", "distributions"}]}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"MakeWeights", "[", 
+     RowBox[{"n_", ",", "p1_", ",", "p2_", ",", "p22_", ",", "nm_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "p21", ",", "CF", ",", "r", ",", "mm", ",", "mmm", ",", "pp", ",", 
+        "pppp"}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"p21", "=", 
+        RowBox[{"p2", "-", "p22"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"CF", "[", "t_", "]"}], ":=", 
+        RowBox[{"CFLogL2", "[", 
+         RowBox[{"n", ",", "p2", ",", "p22", ",", "t"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"mm", "=", 
+        RowBox[{"SetPrecision", "[", 
+         RowBox[{
+          RowBox[{"Der", "[", 
+           RowBox[{"CF", ",", "nm"}], "]"}], ",", "100"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Clear", "[", "pp", "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"pppp", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"pp", "[", "j", "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"j", ",", "1", ",", "nm"}], "}"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"r", "=", 
+        RowBox[{"1", "/", "2"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"mmm", "=", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"n", "-", "p21", "-", "2"}], ")"}], "/", "2"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Flatten", "[", 
+        RowBox[{"pppp", "/.", 
+         RowBox[{"NSolve", "[", 
+          RowBox[{
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"mm", "[", 
+               RowBox[{"[", "h", "]"}], "]"}], "==", 
+              RowBox[{"MomMG", "[", 
+               RowBox[{"pppp", ",", 
+                RowBox[{"Table", "[", 
+                 RowBox[{
+                  RowBox[{"r", "+", "i"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"i", ",", "0", ",", "nm"}], "}"}]}], "]"}], ",", 
+                RowBox[{"Table", "[", 
+                 RowBox[{"mmm", ",", 
+                  RowBox[{"{", 
+                   RowBox[{"i", ",", "0", ",", "nm"}], "}"}]}], "]"}], ",", 
+                "h"}], "]"}]}], ",", 
+             RowBox[{"{", 
+              RowBox[{"h", ",", "1", ",", "nm"}], "}"}]}], "]"}], ",", 
+           "pppp"}], "]"}]}], "]"}]}]}], "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    StyleBox[
+     RowBox[{
+      StyleBox["(",
+       FontWeight->"Bold"], "*"}]], 
+    RowBox[{
+     RowBox[{"**", "**", "**"}], "*", 
+     RowBox[{
+     "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**",
+       "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**",
+       "**", "**"}], "*", 
+     RowBox[{"**", "**", "**", "**"}]}], "******)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "Modules", " ", "used", " ", "for", " ", "the", " ", "computation", " ", 
+      "of", " ", "CDFs", " ", "and", " ", "p"}], "-", 
+     RowBox[{"values", " ", "for", " ", "the", " ", "non"}], "-", 
+     RowBox[{
+     "random", " ", "sample", " ", "size", " ", "case", " ", "for", " ", 
+      "comparison", " ", "with", " ", "the", " ", "random", " ", "sample", 
+      " ", "size", " ", "case"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "CDF", " ", "of", " ", "Lambda", " ", "for", " ", "the", " ", "non"}], 
+     "-", 
+     RowBox[{"random", " ", "sample", " ", "size", " ", 
+      RowBox[{"case", " ", "--"}], " ", "odd", " ", "p1", " ", "and", " ", 
+      "p22"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", "  ", 
+    RowBox[{
+     RowBox[{
+     "used", " ", "in", " ", "the", " ", "Application", " ", "to", " ", 
+      "compute", " ", "p"}], "-", 
+     RowBox[{"values", " ", "for", " ", "the", " ", "non"}], "-", 
+     RowBox[{"random", " ", "sample", " ", "size", " ", "case"}]}], " ", 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"NECDFNROdd", "[", 
+     RowBox[{
+     "n_", ",", "p1_", ",", "p2_", ",", "p22_", ",", "ms_", ",", "x_", ",", 
+      RowBox[{"prec_", ":", "150"}]}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"rj", ",", "p21", ",", "lj", ",", "pi", ",", "pin"}], "}"}], 
+      ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"rj", "=", 
+        RowBox[{"RjOdd", "[", 
+         RowBox[{"p1", ",", "p22"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"p22", "\[Equal]", "1"}], ",", 
+         RowBox[{"rj", "=", 
+          RowBox[{"Drop", "[", 
+           RowBox[{"rj", ",", 
+            RowBox[{"-", "2"}]}], "]"}]}]}], "]"}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"p21", "=", 
+        RowBox[{"p2", "-", "p22"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"lj", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"n", "-", "p1", "-", "p2", "-", "1", "+", "j"}], ")"}], 
+           "/", "2"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"j", ",", "1", ",", 
+            RowBox[{"p1", "+", "p22", "-", "3"}]}], "}"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"pi", "=", 
+        RowBox[{"MakeWeights", "[", 
+         RowBox[{"n", ",", "p1", ",", "p2", ",", "p22", ",", "ms"}], "]"}]}], 
+       ";", "\[IndentingNewLine]", 
+       RowBox[{"pin", "=", 
+        RowBox[{"Append", "[", 
+         RowBox[{"pi", ",", 
+          RowBox[{"1", "-", 
+           RowBox[{"Total", "[", "pi", "]"}]}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"1", "-", 
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"pin", "[", 
+            RowBox[{"[", 
+             RowBox[{"k", "+", "1"}], "]"}], "]"}], "*", 
+           RowBox[{"GNIGcdf", "[", 
+            RowBox[{"rj", ",", 
+             RowBox[{
+              RowBox[{"1", "/", "2"}], "+", "k"}], ",", "lj", ",", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"n", "-", "p21", "-", "2"}], ")"}], "/", "2"}], ",", 
+             RowBox[{"-", 
+              RowBox[{"Log", "[", "x", "]"}]}], ",", "prec"}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"k", ",", "0", ",", "ms"}], "}"}]}], "]"}]}]}]}], "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      StyleBox["NECDFNROdd",
+       FontWeight->"Bold"], "::", "usage"}], "=", 
+     "\"\<\!\(\*StyleBox[\"NECDFNROdd\",FontWeight->\"Bold\"]\)[n, p1, p2, \
+p22, ms, x, prec] computes values for the near-exact CDF or p-value for \
+Lambda for odd p1 and odd p22, for the non-random sample size case, for the \
+case of odd p1 and odd p22,\narguments are (in this order):\n\
+\!\(\*StyleBox[\"n\",FontWeight->\"Bold\"]\) - the sample size\n\
+\!\(\*StyleBox[\"p1\",FontWeight->\"Bold\"]\) - the number of variables of \
+the 1st set\n\!\(\*StyleBox[\"p2\",FontWeight->\"Bold\"]\) - the number of \
+variables of the 2nd set\n\!\(\*StyleBox[\"p22\",FontWeight->\"Bold\"]\) - \
+the number of variables in X2 that were taken out in the submodel\n\
+\!\(\*StyleBox[\"ms\",FontWeight->\"Bold\"]\) - the value of exact moments of \
+W=-Log(Lambda) to be matched by the near-exact distribution\n\
+\!\(\*StyleBox[\"x\",FontWeight->\"Bold\"]\) - the value of Lambda for which \
+we want to compute the CDF or p-value\n\
+\!\(\*StyleBox[\"prec\",FontWeight->\"Bold\"]\) - an optional argument \
+setting the number of precision digits for the computation of the GNIG CDF \
+(default value: 150)\>\""}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "Exact", " ", "CDF", " ", "of", " ", "log", " ", "Lambda", " ", "for", 
+      " ", "the", " ", "non"}], "-", 
+     RowBox[{"random", " ", "sample", " ", "size", " ", 
+      RowBox[{"case", " ", "--"}], " ", "even", " ", "p1", " ", "or", " ", 
+      "even", " ", "p22"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "used", " ", "in", " ", "the", " ", "Application", " ", "section", " ", 
+      "to", " ", "compute", " ", "p"}], "-", "values"}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ExCDFNREven", "[", 
+     RowBox[{"n_", ",", "p1_", ",", "p2_", ",", "p22_", ",", "x_", ",", 
+      RowBox[{"prec_", ":", "150"}]}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"xr", "=", 
+        RowBox[{"Rat", "[", "x", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"rj", "=", 
+        RowBox[{"RjEven", "[", 
+         RowBox[{"p1", ",", "p22"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"p21", "=", 
+        RowBox[{"p2", "-", "p22"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"lj", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"n", "-", "2", "-", "p21", "-", "j"}], ")"}], "/", "2"}], 
+          ",", 
+          RowBox[{"{", 
+           RowBox[{"j", ",", "1", ",", 
+            RowBox[{"p1", "+", "p22", "-", "2"}]}], "}"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"1", "-", 
+        RowBox[{"GIGcdf", "[", 
+         RowBox[{"rj", ",", "lj", ",", 
+          RowBox[{"-", 
+           RowBox[{"Log", "[", "xr", "]"}]}], ",", "prec"}], "]"}]}]}]}], 
+     "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      StyleBox["ExCDFNREven",
+       FontWeight->"Bold"], "::", "usage"}], "=", 
+     "\"\<\!\(\*StyleBox[\"ExCDFNREven\",FontWeight->\"Bold\"]\)[n, p1, p2, \
+p22, x, prec] computes the value for the exact CDF or p-value for Lambda for \
+the non-random sample size case for even p1 or even p22,\narguments are (in \
+this order):\n\!\(\*StyleBox[\"n\",FontWeight->\"Bold\"]\) - value for the \
+(non-random) sample size\n\!\(\*StyleBox[\"p1\",FontWeight->\"Bold\"]\) - the \
+number of variables of the 1st set\n\
+\!\(\*StyleBox[\"p2\",FontWeight->\"Bold\"]\) - the number of variables of \
+the 2nd set\n\!\(\*StyleBox[\"p22\",FontWeight->\"Bold\"]\) - the number of \
+variables in X2 that were taken out in the submodel\n\
+\!\(\*StyleBox[\"x\",FontWeight->\"Bold\"]\) - the value of Lambda for which \
+we want to compute the CDF or p-value\n\
+\!\(\*StyleBox[\"prec\",FontWeight->\"Bold\"]\) - an optional argument \
+setting the number of precision digits for the computation of the GNIG CDF \
+(default value: 150)\>\""}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    StyleBox[
+     RowBox[{
+      StyleBox["(",
+       FontWeight->"Bold"], "*"}]], 
+    RowBox[{
+     RowBox[{"**", "**", "**"}], "*", 
+     RowBox[{
+     "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**",
+       "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**",
+       "**", "**"}], "*", 
+     RowBox[{"**", "**", "**", "**"}]}], "******)"}], "\n", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "Modules", " ", "used", " ", "for", " ", "the", " ", "computation", " ", 
+      "of", " ", "CDFs", " ", "and", " ", "p"}], "-", 
+     RowBox[{
+     "values", " ", "for", " ", "the", " ", "random", " ", "sample", " ", 
+      "size", " ", "case"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "PMF", " ", "of", " ", "the", " ", "truncated", " ", "Poisson", " ", 
+     "distribution"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"PMFPoi", "[", 
+     RowBox[{"lambda_", ",", "i_", ",", "p1_", ",", "p2_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", "lamb", "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"lamb", "=", 
+        RowBox[{"Rat", "[", "lambda", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Exp", "[", 
+         RowBox[{"-", "lamb"}], "]"}], "*", 
+        RowBox[{
+         RowBox[{"lamb", "^", "i"}], "/", 
+         RowBox[{"i", "!"}]}], "*", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"p1", "+", "p2"}], ")"}], "!"}], "/", 
+         RowBox[{"Gamma", "[", 
+          RowBox[{
+           RowBox[{"p1", "+", "p2", "+", "1"}], ",", "0", ",", "lamb"}], 
+          "]"}]}]}]}]}], "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "PMF", " ", "of", " ", "the", " ", "truncated", " ", "Binomial", " ", 
+     "distribution"}], " ", "*)"}], 
+   RowBox[{
+    RowBox[{"PMFBin", "[", 
+     RowBox[{"ns_", ",", "ps_", ",", "i_", ",", "p1_", ",", "p2_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", "rps", "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"rps", "=", 
+        RowBox[{"Rat", "[", "ps", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Binomial", "[", 
+         RowBox[{"ns", ",", "i"}], "]"}], "*", 
+        RowBox[{"rps", "^", "i"}], "*", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"1", "-", "rps"}], ")"}], "^", 
+          RowBox[{"(", 
+           RowBox[{"ns", "-", "i"}], ")"}]}], "/", 
+         RowBox[{"Sum", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Binomial", "[", 
+             RowBox[{"ns", ",", "j"}], "]"}], "*", 
+            RowBox[{"rps", "^", "j"}], "*", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"1", "-", "rps"}], ")"}], "^", 
+             RowBox[{"(", 
+              RowBox[{"ns", "-", "j"}], ")"}]}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{"j", ",", 
+             RowBox[{"p1", "+", "p2", "+", "1"}], ",", "ns"}], "}"}]}], 
+          "]"}]}]}]}]}], "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "PMF", " ", "of", " ", "the", " ", "truncated", " ", "Hypergeometric", 
+     " ", "distribution"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"PMFHG", "[", 
+     RowBox[{
+     "Ns_", ",", "r_", ",", "ns_", ",", "i_", ",", "p1_", ",", "p2_"}], "]"}],
+     ":=", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"Binomial", "[", 
+        RowBox[{"r", ",", "i"}], "]"}], "*", 
+       RowBox[{"Binomial", "[", 
+        RowBox[{
+         RowBox[{"Ns", "-", "r"}], ",", 
+         RowBox[{"ns", "-", "i"}]}], "]"}]}], ")"}], "/", 
+     RowBox[{"(", 
+      RowBox[{"Sum", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Binomial", "[", 
+          RowBox[{"r", ",", "j"}], "]"}], "*", 
+         RowBox[{"Binomial", "[", 
+          RowBox[{
+           RowBox[{"Ns", "-", "r"}], ",", 
+           RowBox[{"ns", "-", "j"}]}], "]"}]}], ",", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", 
+          RowBox[{"Max", "[", 
+           RowBox[{
+            RowBox[{"ns", "+", "r", "-", "Ns"}], ",", 
+            RowBox[{"p1", "+", "p2", "+", "1"}]}], "]"}], ",", 
+          RowBox[{"Min", "[", 
+           RowBox[{"ns", ",", "r"}], "]"}]}], "}"}]}], "]"}], ")"}]}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "PMF", " ", "of", " ", "the", " ", "truncated", " ", "Negative", " ", 
+     "Binomial", " ", "distribution"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"PMFNegBin", "[", 
+     RowBox[{"r_", ",", "ps_", ",", "i_", ",", "p1_", ",", "p2_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", "rps", "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"rps", "=", 
+        RowBox[{"Rat", "[", "ps", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Binomial", "[", 
+         RowBox[{
+          RowBox[{"r", "+", "i", "-", "1"}], ",", "i"}], "]"}], "*", 
+        RowBox[{"rps", "^", "i"}], "*", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"1", "-", "rps"}], ")"}], "^", "r"}], "/", 
+         RowBox[{"(", 
+          RowBox[{"1", "-", 
+           RowBox[{"Sum", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Binomial", "[", 
+               RowBox[{
+                RowBox[{"r", "+", "j", "-", "1"}], ",", "j"}], "]"}], "*", 
+              RowBox[{"rps", "^", "j"}], "*", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"1", "-", "rps"}], ")"}], "^", "r"}]}], ",", 
+             RowBox[{"{", 
+              RowBox[{"j", ",", "0", ",", 
+               RowBox[{"p1", "+", "p2"}]}], "}"}]}], "]"}]}], ")"}]}]}]}]}], 
+     "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "PMF", " ", "of", " ", "the", " ", "truncated", " ", "Negative", " ", 
+     "Hypergeometric", " ", "distribution"}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"PMFNegHG", "[", 
+     RowBox[{"Ns_", ",", "r_", ",", "k_", ",", "i_", ",", "p1_", ",", "p2_"}],
+      "]"}], ":=", 
+    RowBox[{
+     RowBox[{"Binomial", "[", 
+      RowBox[{
+       RowBox[{"i", "+", "k", "-", "1"}], ",", "i"}], "]"}], "*", 
+     RowBox[{
+      RowBox[{"Binomial", "[", 
+       RowBox[{
+        RowBox[{"Ns", "-", "k", "-", "i"}], ",", 
+        RowBox[{"r", "-", "i"}]}], "]"}], "/", 
+      RowBox[{"Sum", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Binomial", "[", 
+          RowBox[{
+           RowBox[{"j", "+", "k", "-", "1"}], ",", "j"}], "]"}], "*", 
+         RowBox[{"Binomial", "[", 
+          RowBox[{
+           RowBox[{"Ns", "-", "k", "-", "j"}], ",", 
+           RowBox[{"r", "-", "j"}]}], "]"}]}], ",", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", 
+          RowBox[{"p1", "+", "p2", "+", "1"}], ",", "r"}], "}"}]}], 
+       "]"}]}]}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Module", " ", "for", " ", "computation", " ", "of", " ", "the", " ", 
+     "rj", " ", "for", " ", "the", " ", "even", " ", "case"}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"expression", " ", 
+     RowBox[{"(", "18", ")"}]}], "  ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"RjEven", "[", 
+     RowBox[{"p1_", ",", "p22_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"hj", ",", "rj"}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"hj", "=", 
+        RowBox[{"Flatten", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Table", "[", 
+            RowBox[{"1", ",", 
+             RowBox[{"{", 
+              RowBox[{"j", ",", "1", ",", 
+               RowBox[{"Min", "[", 
+                RowBox[{"p1", ",", "p22"}], "]"}]}], "}"}]}], "]"}], ",", 
+           RowBox[{"Table", "[", 
+            RowBox[{"0", ",", 
+             RowBox[{"{", 
+              RowBox[{"j", ",", 
+               RowBox[{"1", "+", 
+                RowBox[{"Min", "[", 
+                 RowBox[{"p1", ",", "p22"}], "]"}]}], ",", 
+               RowBox[{"Max", "[", 
+                RowBox[{"p1", ",", "p22"}], "]"}]}], "}"}]}], "]"}], ",", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"-", "1"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"j", ",", 
+               RowBox[{"1", "+", 
+                RowBox[{"Max", "[", 
+                 RowBox[{"p1", ",", "p22"}], "]"}]}], ",", 
+               RowBox[{"p1", "+", "p22", "-", "2"}]}], "}"}]}], "]"}]}], 
+          "}"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"rj", "=", "hj"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Do", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"rj", "[", 
+           RowBox[{"[", "j", "]"}], "]"}], "=", 
+          RowBox[{
+           RowBox[{"rj", "[", 
+            RowBox[{"[", 
+             RowBox[{"j", "-", "2"}], "]"}], "]"}], "+", 
+           RowBox[{"hj", "[", 
+            RowBox[{"[", "j", "]"}], "]"}]}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{"j", ",", "3", ",", 
+           RowBox[{"p1", "+", "p22", "-", "2"}]}], "}"}]}], "]"}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"p22", "\[Equal]", "1"}], ",", 
+         RowBox[{"Drop", "[", 
+          RowBox[{"rj", ",", 
+           RowBox[{"-", "1"}]}], "]"}], ",", "rj"}], "]"}]}]}], "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Module", " ", "for", " ", "computation", " ", "of", " ", "the", " ", 
+     "rj", " ", "for", " ", "the", " ", "odd", " ", "case"}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", "  ", 
+    RowBox[{"expression", " ", 
+     RowBox[{"(", "21", ")"}]}], "  ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"RjOdd", "[", 
+     RowBox[{"p1_", ",", "p22_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"hj", ",", "rj"}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"hj", "=", 
+        RowBox[{"Flatten", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Table", "[", 
+            RowBox[{"1", ",", 
+             RowBox[{"{", 
+              RowBox[{"j", ",", "1", ",", 
+               RowBox[{"Min", "[", 
+                RowBox[{"p1", ",", "p22"}], "]"}]}], "}"}]}], "]"}], ",", 
+           RowBox[{"Table", "[", 
+            RowBox[{"0", ",", 
+             RowBox[{"{", 
+              RowBox[{"j", ",", 
+               RowBox[{"1", "+", 
+                RowBox[{"Min", "[", 
+                 RowBox[{"p1", ",", "p22"}], "]"}]}], ",", 
+               RowBox[{"Max", "[", 
+                RowBox[{"p1", ",", "p22"}], "]"}]}], "}"}]}], "]"}], ",", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"-", "1"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"j", ",", 
+               RowBox[{"1", "+", 
+                RowBox[{"Max", "[", 
+                 RowBox[{"p1", ",", "p22"}], "]"}]}], ",", 
+               RowBox[{"p1", "+", "p22", "-", "3"}]}], "}"}]}], "]"}]}], 
+          "}"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"rj", "=", "hj"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Do", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"rj", "[", 
+           RowBox[{"[", "j", "]"}], "]"}], "=", 
+          RowBox[{
+           RowBox[{"rj", "[", 
+            RowBox[{"[", 
+             RowBox[{"j", "-", "2"}], "]"}], "]"}], "+", 
+           RowBox[{"hj", "[", 
+            RowBox[{"[", "j", "]"}], "]"}]}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{"j", ",", "3", ",", 
+           RowBox[{"p1", "+", "p22", "-", "3"}]}], "}"}]}], "]"}], ";", 
+       "\[IndentingNewLine]", "rj"}]}], "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Module", " ", "for", " ", "computation", " ", "of", " ", "the", " ", 
+     "rate", " ", 
+     RowBox[{"parameters", " ", "\\", "lambda_j"}], " ", "in", " ", 
+     RowBox[{"(", "25", ")"}], " ", "and", " ", 
+     RowBox[{"(", "26", ")"}], " ", "for", " ", "the", " ", "random", " ", 
+     "sample", " ", "size", " ", "modules"}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"LjEven", "[", 
+     RowBox[{"p1_", ",", "p2_", ",", "p22_", ",", "i_"}], "]"}], ":=", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"i", "-", "2", "-", 
+         RowBox[{"(", 
+          RowBox[{"p2", "-", "p22"}], ")"}], "-", "j"}], ")"}], "/", "2"}], 
+      ",", 
+      RowBox[{"{", 
+       RowBox[{"j", ",", "1", ",", 
+        RowBox[{"p1", "+", "p22", "-", "2"}]}], "}"}]}], "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"LjOdd", "[", 
+     RowBox[{"p1_", ",", "p2_", ",", "p22_", ",", "i_"}], "]"}], ":=", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"i", "-", "p1", "-", "p2", "-", "1", "+", "j"}], ")"}], "/", 
+       "2"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"j", ",", "1", ",", 
+        RowBox[{"p1", "+", "p22", "-", "3"}]}], "}"}]}], "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**",
+      "**", "**", "**", "**", "**", "**", "**"}], "******)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "Exact", " ", "CDFs", " ", "for", " ", "the", " ", "random", " ", 
+      "sample", " ", "size", " ", "case"}], " ", "-", " ", 
+     RowBox[{"see", " ", "Theorem", " ", "2.1"}]}], " ", "*)"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Exact", " ", "CDF", " ", "of", " ", "log", " ", 
+     RowBox[{"(", "partial", ")"}], " ", "Lambda", " ", "for", " ", "the", 
+     " ", "random", " ", "sample", " ", "size", " ", 
+     RowBox[{"case", " ", "--"}], " ", "even", " ", "p1", " ", "or", " ", 
+     "even", " ", "p22"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"expression", " ", 
+      RowBox[{"(", "24", ")"}], " ", "in", " ", "Theorem", " ", "2.1"}], " ", 
+     "-", " ", 
+     RowBox[{"Poisson", " ", "sampling"}]}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ExCDFPoiEven", "[", 
+     RowBox[{
+     "lambda_", ",", "trunc_", ",", "p1_", ",", "p2_", ",", "p22_", ",", "x_",
+       ",", 
+      RowBox[{"prec_", ":", "150"}]}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"rj", ",", "linf", ",", "lsup"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"linf", "=", 
+        RowBox[{"p1", "+", "p2", "+", "1"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"lsup", "=", "trunc"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"xr", "=", 
+        RowBox[{"Rat", "[", "x", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"rj", "=", 
+        RowBox[{"RjEven", "[", 
+         RowBox[{"p1", ",", "p22"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"1", "-", 
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"PMFPoi", "[", 
+            RowBox[{"lambda", ",", "i", ",", "p1", ",", "p2"}], "]"}], "*", 
+           RowBox[{"GIGcdf", "[", 
+            RowBox[{"rj", ",", 
+             RowBox[{"LjEven", "[", 
+              RowBox[{"p1", ",", "p2", ",", "p22", ",", "i"}], "]"}], ",", 
+             RowBox[{"-", 
+              RowBox[{"Log", "[", "xr", "]"}]}], ",", "prec"}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "linf", ",", "lsup"}], "}"}]}], "]"}]}]}]}], 
+     "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      StyleBox["ExCDFPoiEven",
+       FontWeight->"Bold"], "::", "usage"}], "=", 
+     "\"\<\!\(\*StyleBox[\"ExCDFPoiEven\",FontWeight->\"Bold\"]\)[lambda, \
+trunc, p1, p2, p22, x, prec] computes the value for the exact CDF or p-value \
+for Lambda for the random sample size case with Poisson sample size for the \
+case of even p1 or even p22,\narguments are (in this order):\n\
+lambda\!\(\*StyleBox[\" \",FontWeight->\"Plain\"]\)- value for the parameter \
+lambda in the Poisson distribution for random sample sizes\ntrunc - upper \
+value for the computation of the truncated Poisson distribution for random \
+sample sizes (value where the distribution will be truncated from above)\n\
+\!\(\*StyleBox[\"p1\",FontWeight->\"Bold\"]\) - the number of variables of \
+the 1st set\n\!\(\*StyleBox[\"p2\",FontWeight->\"Bold\"]\) - the number of \
+variables of the 2nd set\n\!\(\*StyleBox[\"p22\",FontWeight->\"Bold\"]\) - \
+the number of variables in X2 that were taken out in the submodel\n\
+\!\(\*StyleBox[\"x\",FontWeight->\"Bold\"]\) - the value of Lambda for which \
+we want to compute the CDF or p-value\n\
+\!\(\*StyleBox[\"prec\",FontWeight->\"Bold\"]\) - an optional argument \
+setting the number of precision digits for the computation of the GNIG CDF \
+(default value: 150)\>\""}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Exact", " ", "CDF", " ", "of", " ", "log", " ", 
+     RowBox[{"(", "partial", ")"}], " ", "Lambda", " ", "for", " ", "the", 
+     " ", "random", " ", "sample", " ", "size", " ", 
+     RowBox[{"case", " ", "--"}], " ", "even", " ", "p1", " ", "or", " ", 
+     "even", " ", "p22"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"expression", " ", 
+      RowBox[{"(", "24", ")"}], " ", "in", " ", "Theorem", " ", "2.1"}], " ", 
+     "-", " ", 
+     RowBox[{"Binomial", " ", "sampling"}]}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ExCDFBinEven", "[", 
+     RowBox[{
+     "ns_", ",", "ps_", ",", "p1_", ",", "p2_", ",", "p22_", ",", "x_", ",", 
+      RowBox[{"prec_", ":", "150"}]}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"rj", ",", "linf", ",", "lsup"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"linf", "=", 
+        RowBox[{"p1", "+", "p2", "+", "1"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"lsup", "=", "ns"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"xr", "=", 
+        RowBox[{"Rat", "[", "x", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"rj", "=", 
+        RowBox[{"RjEven", "[", 
+         RowBox[{"p1", ",", "p22"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"1", "-", 
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"PMFBin", "[", 
+            RowBox[{"ns", ",", "ps", ",", "i", ",", "p1", ",", "p2"}], "]"}], 
+           "*", 
+           RowBox[{"GIGcdf", "[", 
+            RowBox[{"rj", ",", 
+             RowBox[{"LjEven", "[", 
+              RowBox[{"p1", ",", "p2", ",", "p22", ",", "i"}], "]"}], ",", 
+             RowBox[{"-", 
+              RowBox[{"Log", "[", "xr", "]"}]}], ",", "prec"}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "linf", ",", "lsup"}], "}"}]}], "]"}]}]}]}], 
+     "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      StyleBox["ExCDFBinEven",
+       FontWeight->"Bold"], "::", "usage"}], "=", 
+     "\"\<\!\(\*StyleBox[\"ExCDFBinEven\",FontWeight->\"Bold\"]\)[ns, ps, p1, \
+p2, p22, x, prec] computes the value for the exact CDF or p-value for Lambda \
+for the random sample size case with Binomial sample size for the case of \
+even p1 or even p22,\narguments are (in this order):\n\
+n\!\(\*StyleBox[\"s\",FontWeight->\"Bold\"]\)\!\(\*StyleBox[\" \
+\",FontWeight->\"Plain\"]\)- value for the parameter \!\(\*SuperscriptBox[\(n\
+\), \(*\)]\) in the Binomial distribution for random sample sizes\n\
+\!\(\*StyleBox[\(p\*StyleBox[\"s\",FontWeight->\"Bold\"]\)]\) - value for the \
+parameter \!\(\*SuperscriptBox[\(p\), \(*\)]\) in the Binomial distribution \
+for random sample sizes\n\!\(\*StyleBox[\"p1\",FontWeight->\"Bold\"]\) - the \
+number of variables of the 1st set\n\
+\!\(\*StyleBox[\"p2\",FontWeight->\"Bold\"]\) - the number of variables of \
+the 2nd set\n\!\(\*StyleBox[\"p22\",FontWeight->\"Bold\"]\) - the number of \
+variables in X2 that were taken out in the submodel\n\
+\!\(\*StyleBox[\"x\",FontWeight->\"Bold\"]\) - the value of Lambda for which \
+we want to compute the CDF or p-value\n\
+\!\(\*StyleBox[\"prec\",FontWeight->\"Bold\"]\) - an optional argument \
+setting the number of precision digits for the computation of the GNIG CDF \
+(default value: 150)\>\""}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Exact", " ", "CDF", " ", "of", " ", "log", " ", 
+     RowBox[{"(", "partial", ")"}], " ", "Lambda", " ", "for", " ", "the", 
+     " ", "random", " ", "sample", " ", "size", " ", 
+     RowBox[{"case", " ", "--"}], " ", "even", " ", "p1", " ", "or", " ", 
+     "even", " ", "p22"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"expression", " ", 
+      RowBox[{"(", "24", ")"}], " ", "in", " ", "Theorem", " ", "2.1"}], " ", 
+     "-", " ", 
+     RowBox[{"Hypergeometric", " ", "sampling"}]}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ExCDFHGEven", "[", 
+     RowBox[{
+     "Ns_", ",", "r_", ",", "ns_", ",", "p1_", ",", "p2_", ",", "p22_", ",", 
+      "x_", ",", 
+      RowBox[{"prec_", ":", "150"}]}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"rj", ",", "linf", ",", "lsup"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"linf", "=", 
+        RowBox[{"Max", "[", 
+         RowBox[{
+          RowBox[{"ns", "+", "r", "-", "Ns"}], ",", 
+          RowBox[{"p1", "+", "p2", "+", "1"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"lsup", "=", 
+        RowBox[{"Min", "[", 
+         RowBox[{"ns", ",", "r"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"xr", "=", 
+        RowBox[{"Rat", "[", "x", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"rj", "=", 
+        RowBox[{"RjEven", "[", 
+         RowBox[{"p1", ",", "p22"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"1", "-", 
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"PMFHG", "[", 
+            RowBox[{
+            "Ns", ",", "r", ",", "ns", ",", "i", ",", "p1", ",", "p2"}], 
+            "]"}], "*", 
+           RowBox[{"GIGcdf", "[", 
+            RowBox[{"rj", ",", 
+             RowBox[{"LjEven", "[", 
+              RowBox[{"p1", ",", "p2", ",", "p22", ",", "i"}], "]"}], ",", 
+             RowBox[{"-", 
+              RowBox[{"Log", "[", "xr", "]"}]}], ",", "prec"}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "linf", ",", "lsup"}], "}"}]}], "]"}]}]}]}], 
+     "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      StyleBox["ExCDFHGEven",
+       FontWeight->"Bold"], "::", "usage"}], "=", 
+     "\"\<\!\(\*StyleBox[\"ExCDFHGEven\",FontWeight->\"Bold\"]\)[Ns, r, ns, \
+p1, p2, p22, x, prec] computes the value for the exact CDF or p-value for \
+Lambda for the random sample size case with Hypergeometric sample size for \
+the case of even p1 or even p22,\narguments are (in this order):\n\
+\!\(\*StyleBox[\"Ns\",FontWeight->\"Bold\"]\)\!\(\*StyleBox[\" \
+\",FontWeight->\"Plain\"]\)- value for the parameter \!\(\*SuperscriptBox[\(N\
+\), \(*\)]\) in the Hypergeometric distribution for random sample sizes\n\!\(\
+\*StyleBox[\"r\",FontWeight->\"Bold\"]\) - value for the parameter r in the \
+Hypergeometric distribution for random sample sizes\n\
+\!\(\*StyleBox[\"ns\",FontWeight->\"Bold\"]\) - value for the parameter \
+\!\(\*SuperscriptBox[\(n\), \(*\)]\) in the Hypergeometric distribution for \
+random sample sizes\n\!\(\*StyleBox[\"p1\",FontWeight->\"Bold\"]\) - the \
+number of variables of the 1st set\n\
+\!\(\*StyleBox[\"p2\",FontWeight->\"Bold\"]\) - the number of variables of \
+the 2nd set\n\!\(\*StyleBox[\"p22\",FontWeight->\"Bold\"]\) - the number of \
+variables in X2 that were taken out in the submodel\n\
+\!\(\*StyleBox[\"x\",FontWeight->\"Bold\"]\) - the value of Lambda for which \
+we want to compute the CDF or p-value\n\
+\!\(\*StyleBox[\"prec\",FontWeight->\"Bold\"]\) - an optional argument \
+setting the number of precision digits for the computation of the GNIG CDF \
+(default value: 150)\>\""}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Exact", " ", "CDF", " ", "of", " ", "log", " ", 
+     RowBox[{"(", "partial", ")"}], " ", "Lambda", " ", "for", " ", "the", 
+     " ", "random", " ", "sample", " ", "size", " ", 
+     RowBox[{"case", " ", "--"}], " ", "even", " ", "p1", " ", "or", " ", 
+     "even", " ", "p22"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"expression", " ", 
+      RowBox[{"(", "24", ")"}], " ", "in", " ", "Theorem", " ", "2.1"}], " ", 
+     "-", " ", 
+     RowBox[{"Negative", " ", "Binomial", " ", "sampling"}]}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ExCDFNegBinEven", "[", 
+     RowBox[{
+     "r_", ",", "ps_", ",", "trunc_", ",", "p1_", ",", "p2_", ",", "p22_", 
+      ",", "x_", ",", 
+      RowBox[{"prec_", ":", "150"}]}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"rj", ",", "linf", ",", "lsup"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"linf", "=", 
+        RowBox[{"p1", "+", "p2", "+", "1"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"lsup", "=", "trunc"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"xr", "=", 
+        RowBox[{"Rat", "[", "x", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"rj", "=", 
+        RowBox[{"RjEven", "[", 
+         RowBox[{"p1", ",", "p22"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"1", "-", 
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"PMFNegBin", "[", 
+            RowBox[{"r", ",", "ps", ",", "i", ",", "p1", ",", "p2"}], "]"}], 
+           "*", 
+           RowBox[{"GIGcdf", "[", 
+            RowBox[{"rj", ",", 
+             RowBox[{"LjEven", "[", 
+              RowBox[{"p1", ",", "p2", ",", "p22", ",", "i"}], "]"}], ",", 
+             RowBox[{"-", 
+              RowBox[{"Log", "[", "xr", "]"}]}], ",", "prec"}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "linf", ",", "lsup"}], "}"}]}], "]"}]}]}]}], 
+     "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      StyleBox["ExCDFNegBinEven",
+       FontWeight->"Bold"], "::", "usage"}], "=", 
+     "\"\<\!\(\*StyleBox[\"ExCDFNegBinEven\",FontWeight->\"Bold\"]\)[r, ps, \
+trunc, p1, p2, p22, x, prec] computes the value for the exact CDF or p-value \
+for Lambda for the random sample size case with Negative Binomial sample size \
+for the case of even p1 or even p22,\narguments are (in this order):\n\
+\!\(\*StyleBox[\"r\",FontWeight->\"Bold\"]\) - value for the parameter r in \
+the Negative Binomial distribution for random sample sizes\n\
+\!\(\*StyleBox[\(p\*StyleBox[\"s\",FontWeight->\"Bold\"]\)]\) - value for the \
+parameter \!\(\*SuperscriptBox[\(p\), \(*\)]\) in the Negative Binomial \
+distribution for random sample sizes\ntrunc - upper value for the computation \
+of the truncated Negative Binomial distribution for random sample sizes \
+(value where the distribution will be truncated from above)\n\
+\!\(\*StyleBox[\"p1\",FontWeight->\"Bold\"]\) - the number of variables of \
+the 1st set\n\!\(\*StyleBox[\"p2\",FontWeight->\"Bold\"]\) - the number of \
+variables of the 2nd set\n\!\(\*StyleBox[\"p22\",FontWeight->\"Bold\"]\) - \
+the number of variables in X2 that were taken out in the submodel\n\
+\!\(\*StyleBox[\"x\",FontWeight->\"Bold\"]\) - the value of Lambda for which \
+we want to compute the CDF or p-value\n\
+\!\(\*StyleBox[\"prec\",FontWeight->\"Bold\"]\) - an optional argument \
+setting the number of precision digits for the computation of the GNIG CDF \
+(default value: 150)\>\""}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Exact", " ", "CDF", " ", "of", " ", "log", " ", 
+     RowBox[{"(", "partial", ")"}], " ", "Lambda", " ", "for", " ", "the", 
+     " ", "random", " ", "sample", " ", "size", " ", 
+     RowBox[{"case", " ", "--"}], " ", "even", " ", "p1", " ", "or", " ", 
+     "even", " ", "p22"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"expression", " ", 
+      RowBox[{"(", "24", ")"}], " ", "in", " ", "Theorem", " ", "2.1"}], " ", 
+     "-", " ", 
+     RowBox[{"Negative", " ", "Hypergeometric", " ", "sampling"}]}], " ", 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ExCDFNegHGEven", "[", 
+     RowBox[{
+     "Ns_", ",", "r_", ",", "k_", ",", "p1_", ",", "p2_", ",", "p22_", ",", 
+      "x_", ",", 
+      RowBox[{"prec_", ":", "150"}]}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"rj", ",", "linf", ",", "lsup"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"linf", "=", 
+        RowBox[{"p1", "+", "p2", "+", "1"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"lsup", "=", "r"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"xr", "=", 
+        RowBox[{"Rat", "[", "x", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"rj", "=", 
+        RowBox[{"RjEven", "[", 
+         RowBox[{"p1", ",", "p22"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"1", "-", 
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"PMFNegHG", "[", 
+            RowBox[{
+            "Ns", ",", "r", ",", "k", ",", "i", ",", "p1", ",", "p2"}], "]"}],
+            "*", 
+           RowBox[{"GIGcdf", "[", 
+            RowBox[{"rj", ",", 
+             RowBox[{"LjEven", "[", 
+              RowBox[{"p1", ",", "p2", ",", "p22", ",", "i"}], "]"}], ",", 
+             RowBox[{"-", 
+              RowBox[{"Log", "[", "xr", "]"}]}], ",", "prec"}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "linf", ",", "lsup"}], "}"}]}], "]"}]}]}]}], 
+     "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      StyleBox["ExCDFNegHGEven",
+       FontWeight->"Bold"], "::", "usage"}], "=", 
+     "\"\<\!\(\*StyleBox[\"ExCDFNegHGEven\",FontWeight->\"Bold\"]\)[Ns, r, k, \
+p1, p2, p22, x, prec] computes the value for the exact CDF or p-value for \
+Lambda for the random sample size case with Negative Hypergeometric sample \
+size for the case of even p1 or even p22,\narguments are (in this order):\n\
+N\!\(\*StyleBox[\"s\",FontWeight->\"Bold\"]\) - value for the parameter \
+\!\(\*SuperscriptBox[\(N\), \(*\)]\) in the Negative Hypergeometric \
+distribution for random sample sizes\n\!\(\*StyleBox[\"r\",FontWeight->\"Bold\
+\"]\) - value for the parameter r in the Negative Hypergeometric distribution \
+for random sample sizes\nk - value for the parameter k in the Negative \
+Hypergeometric distribution for random sample sizes\n\
+\!\(\*StyleBox[\"p1\",FontWeight->\"Bold\"]\) - the number of variables of \
+the 1st set\n\!\(\*StyleBox[\"p2\",FontWeight->\"Bold\"]\) - the number of \
+variables of the 2nd set\n\!\(\*StyleBox[\"p22\",FontWeight->\"Bold\"]\) - \
+the number of variables in X2 that were taken out in the submodel\n\
+\!\(\*StyleBox[\"x\",FontWeight->\"Bold\"]\) - the value of Lambda for which \
+we want to compute the CDF or p-value\n\
+\!\(\*StyleBox[\"prec\",FontWeight->\"Bold\"]\) - an optional argument \
+setting the number of precision digits for the computation of the GNIG CDF \
+(default value: 150)\>\""}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**",
+      "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", 
+     "**", "**", "**", "**"}], "******)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Near", "-", 
+     RowBox[{"exact", " ", "CDF", " ", "for", " ", "Log", " ", 
+      RowBox[{"Lambda", " ", "--"}], " ", "random", " ", "sample", " ", 
+      "size", " ", 
+      RowBox[{"case", " ", "--"}], " ", "both", " ", "p1", " ", "and", " ", 
+      "p22", " ", "odd"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", "  ", 
+    RowBox[{
+     RowBox[{"expression", " ", "in", " ", "Theorem", " ", "2.2"}], " ", "-", 
+     " ", 
+     RowBox[{"Poisson", " ", "sampling"}]}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"NECDFPoiOdd", "[", 
+     RowBox[{
+     "lambda_", ",", "trunc_", ",", "p1_", ",", "p2_", ",", "p22_", ",", 
+      "ms_", ",", "x_", ",", 
+      RowBox[{"prec_", ":", "150"}]}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "rj", ",", "p21", ",", "pi", ",", "pin", ",", "xr", ",", "linf", ",", 
+        "lsup"}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"linf", "=", 
+        RowBox[{"p1", "+", "p2", "+", "1"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"lsup", "=", "trunc"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"rj", "=", 
+        RowBox[{"RjOdd", "[", 
+         RowBox[{"p1", ",", "p22"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"p21", "=", 
+        RowBox[{"p2", "-", "p22"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"pi", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"MakeWeights", "[", 
+           RowBox[{"i", ",", "p1", ",", "p2", ",", "p22", ",", "ms"}], "]"}], 
+          ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "linf", ",", "lsup"}], "}"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"pin", "=", 
+        RowBox[{"Join", "[", 
+         RowBox[{"pi", ",", 
+          RowBox[{"Makeveccol", "[", 
+           RowBox[{"1", "-", 
+            RowBox[{"Total", "[", 
+             RowBox[{"Transpose", "[", "pi", "]"}], "]"}]}], "]"}], ",", 
+          "2"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"xr", "=", 
+        RowBox[{"Rat", "[", "x", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"1", "-", 
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"PMFPoi", "[", 
+            RowBox[{"lambda", ",", "i", ",", "p1", ",", "p2"}], "]"}], "*", 
+           RowBox[{"Sum", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"pin", "[", 
+                RowBox[{"[", 
+                 RowBox[{"i", "-", "linf", "+", "1"}], "]"}], "]"}], "[", 
+               RowBox[{"[", 
+                RowBox[{"k", "+", "1"}], "]"}], "]"}], "*", 
+              RowBox[{"GNIGcdf", "[", 
+               RowBox[{"rj", ",", 
+                RowBox[{
+                 RowBox[{"1", "/", "2"}], "+", "k"}], ",", 
+                RowBox[{"LjOdd", "[", 
+                 RowBox[{"p1", ",", "p2", ",", "p22", ",", "i"}], "]"}], ",", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"i", "-", "p21", "-", "2"}], ")"}], "/", "2"}], ",", 
+                RowBox[{"-", 
+                 RowBox[{"Log", "[", "xr", "]"}]}], ",", "prec"}], "]"}]}], 
+             ",", 
+             RowBox[{"{", 
+              RowBox[{"k", ",", "0", ",", "ms"}], "}"}]}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "linf", ",", "lsup"}], "}"}]}], "]"}]}]}]}], 
+     "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      StyleBox["NECDFPoiOdd",
+       FontWeight->"Bold"], "::", "usage"}], "=", 
+     "\"\<\!\(\*StyleBox[\"NECDFPoiOdd\",FontWeight->\"Bold\"]\)[lambda, \
+trunc, p1, p2, p22, ms, x, prec] computes the value for the near-exact CDF or \
+p-value for Lambda for the random sample size case with Poisson sample size, \
+for odd p1 and odd p22,\narguments are (in this order):\nlambda - value for \
+the parameter lambda in the Poisson distribution for random sample sizes\n\
+trunc - upper value for the computation of the truncated Poisson distribution \
+for random sample sizes (value where the distribution will be truncated from \
+above)\n\!\(\*StyleBox[\"p1\",FontWeight->\"Bold\"]\) - the number of \
+variables of the 1st set\n\!\(\*StyleBox[\"p2\",FontWeight->\"Bold\"]\) - the \
+number of variables of the 2nd set\n\!\(\*StyleBox[\"p22\",FontWeight->\"Bold\
+\"]\) - the number of variables in X2 that were taken out in the submodel\n\!\
+\(\*StyleBox[\"ms\",FontWeight->\"Bold\"]\) - the value of exact moments of \
+W=-Log(Lambda) to be matched by the near-exact distribution\n\
+\!\(\*StyleBox[\"x\",FontWeight->\"Bold\"]\) - the value of Lambda for which \
+we want to compute the CDF or p-value\n\
+\!\(\*StyleBox[\"prec\",FontWeight->\"Bold\"]\) - an optional argument \
+setting the number of precision digits for the computation of the GNIG CDF \
+(default value: 150)\>\""}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Near", "-", 
+     RowBox[{"exact", " ", "CDF", " ", "for", " ", "Log", " ", 
+      RowBox[{"Lambda", " ", "--"}], " ", "random", " ", "sample", " ", 
+      "size", " ", 
+      RowBox[{"case", " ", "--"}], " ", "both", " ", "p1", " ", "and", " ", 
+      "p22", " ", "odd"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", "  ", 
+    RowBox[{
+     RowBox[{"expression", " ", "in", " ", "Theorem", " ", "2.2"}], " ", "-", 
+     " ", 
+     RowBox[{"Binomial", " ", "sampling"}]}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"NECDFBinOdd", "[", 
+     RowBox[{
+     "ns_", ",", "ps_", ",", "p1_", ",", "p2_", ",", "p22_", ",", "ms_", ",", 
+      "x_", ",", 
+      RowBox[{"prec_", ":", "150"}]}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "rj", ",", "p21", ",", "pi", ",", "pin", ",", "xr", ",", "linf", ",", 
+        "lsup"}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"linf", "=", 
+        RowBox[{"p1", "+", "p2", "+", "1"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"lsup", "=", "ns"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"rj", "=", 
+        RowBox[{"RjOdd", "[", 
+         RowBox[{"p1", ",", "p22"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"p21", "=", 
+        RowBox[{"p2", "-", "p22"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"pi", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"MakeWeights", "[", 
+           RowBox[{"i", ",", "p1", ",", "p2", ",", "p22", ",", "ms"}], "]"}], 
+          ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "linf", ",", "lsup"}], "}"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"pin", "=", 
+        RowBox[{"Join", "[", 
+         RowBox[{"pi", ",", 
+          RowBox[{"Makeveccol", "[", 
+           RowBox[{"1", "-", 
+            RowBox[{"Total", "[", 
+             RowBox[{"Transpose", "[", "pi", "]"}], "]"}]}], "]"}], ",", 
+          "2"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"xr", "=", 
+        RowBox[{"Rat", "[", "x", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"1", "-", 
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"PMFBin", "[", 
+            RowBox[{"ns", ",", "ps", ",", "i", ",", "p1", ",", "p2"}], "]"}], 
+           "*", 
+           RowBox[{"Sum", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"pin", "[", 
+                RowBox[{"[", 
+                 RowBox[{"i", "-", "linf", "+", "1"}], "]"}], "]"}], "[", 
+               RowBox[{"[", 
+                RowBox[{"k", "+", "1"}], "]"}], "]"}], "*", 
+              RowBox[{"GNIGcdf", "[", 
+               RowBox[{"rj", ",", 
+                RowBox[{
+                 RowBox[{"1", "/", "2"}], "+", "k"}], ",", 
+                RowBox[{"LjOdd", "[", 
+                 RowBox[{"p1", ",", "p2", ",", "p22", ",", "i"}], "]"}], ",", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"i", "-", "p21", "-", "2"}], ")"}], "/", "2"}], ",", 
+                RowBox[{"-", 
+                 RowBox[{"Log", "[", "xr", "]"}]}], ",", "prec"}], "]"}]}], 
+             ",", 
+             RowBox[{"{", 
+              RowBox[{"k", ",", "0", ",", "ms"}], "}"}]}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "linf", ",", "lsup"}], "}"}]}], "]"}]}]}]}], 
+     "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      StyleBox["NECDFBinOdd",
+       FontWeight->"Bold"], "::", "usage"}], "=", 
+     "\"\<\!\(\*StyleBox[\"NECDFBinOdd\",FontWeight->\"Bold\"]\)[ns, ps, p1, \
+p2, p22, ms, x, prec] computes the value for the near-exact CDF or p-value \
+for Lambda for the random sample size case with Binomial sample size, for odd \
+p1 and odd p22,\narguments are (in this order):\nns - value for the parameter \
+\!\(\*SuperscriptBox[\(n\), \(*\)]\) in the Binomial distribution for random \
+sample sizes\nps - value for the parameter \!\(\*SuperscriptBox[\(p\), \(*\)]\
+\) in the Binomial distribution for random sample sizes\n\
+\!\(\*StyleBox[\"p1\",FontWeight->\"Bold\"]\) - the number of variables of \
+the 1st set\n\!\(\*StyleBox[\"p2\",FontWeight->\"Bold\"]\) - the number of \
+variables of the 2nd set\n\!\(\*StyleBox[\"p22\",FontWeight->\"Bold\"]\) - \
+the number of variables in X2 that were taken out in the submodel\n\
+\!\(\*StyleBox[\"ms\",FontWeight->\"Bold\"]\) - the value of exact moments of \
+W=-Log(Lambda) to be matched by the near-exact distribution\n\
+\!\(\*StyleBox[\"x\",FontWeight->\"Bold\"]\) - the value of Lambda for which \
+we want to compute the CDF or p-value\n\
+\!\(\*StyleBox[\"prec\",FontWeight->\"Bold\"]\) - an optional argument \
+setting the number of precision digits for the computation of the GNIG CDF \
+(default value: 150)\>\""}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Near", "-", 
+     RowBox[{"exact", " ", "CDF", " ", "for", " ", "Log", " ", 
+      RowBox[{"Lambda", " ", "--"}], " ", "random", " ", "sample", " ", 
+      "size", " ", 
+      RowBox[{"case", " ", "--"}], " ", "both", " ", "p1", " ", "and", " ", 
+      "p22", " ", "odd"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", "  ", 
+    RowBox[{
+     RowBox[{"expression", " ", "in", " ", "Theorem", " ", "2.2"}], " ", "-", 
+     " ", 
+     RowBox[{"Hypergeometric", " ", "sampling"}]}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"NECDFHGOdd", "[", 
+     RowBox[{
+     "Ns_", ",", "r_", ",", "ns_", ",", "p1_", ",", "p2_", ",", "p22_", ",", 
+      "ms_", ",", "x_", ",", 
+      RowBox[{"prec_", ":", "150"}]}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "rj", ",", "p21", ",", "pi", ",", "pin", ",", "xr", ",", "linf", ",", 
+        "lsup"}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"linf", "=", 
+        RowBox[{"Max", "[", 
+         RowBox[{
+          RowBox[{"ns", "+", "r", "-", "Ns"}], ",", 
+          RowBox[{"p1", "+", "p2", "+", "1"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"lsup", "=", 
+        RowBox[{"Min", "[", 
+         RowBox[{"ns", ",", "r"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"rj", "=", 
+        RowBox[{"RjOdd", "[", 
+         RowBox[{"p1", ",", "p22"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"p21", "=", 
+        RowBox[{"p2", "-", "p22"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"pi", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"MakeWeights", "[", 
+           RowBox[{"i", ",", "p1", ",", "p2", ",", "p22", ",", "ms"}], "]"}], 
+          ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "linf", ",", "lsup"}], "}"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"pin", "=", 
+        RowBox[{"Join", "[", 
+         RowBox[{"pi", ",", 
+          RowBox[{"Makeveccol", "[", 
+           RowBox[{"1", "-", 
+            RowBox[{"Total", "[", 
+             RowBox[{"Transpose", "[", "pi", "]"}], "]"}]}], "]"}], ",", 
+          "2"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"xr", "=", 
+        RowBox[{"Rat", "[", "x", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"1", "-", 
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"PMFHG", "[", 
+            RowBox[{
+            "Ns", ",", "r", ",", "ns", ",", "i", ",", "p1", ",", "p2"}], 
+            "]"}], "*", 
+           RowBox[{"Sum", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"pin", "[", 
+                RowBox[{"[", 
+                 RowBox[{"i", "-", "linf", "+", "1"}], "]"}], "]"}], "[", 
+               RowBox[{"[", 
+                RowBox[{"k", "+", "1"}], "]"}], "]"}], "*", 
+              RowBox[{"GNIGcdf", "[", 
+               RowBox[{"rj", ",", 
+                RowBox[{
+                 RowBox[{"1", "/", "2"}], "+", "k"}], ",", 
+                RowBox[{"LjOdd", "[", 
+                 RowBox[{"p1", ",", "p2", ",", "p22", ",", "i"}], "]"}], ",", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"i", "-", "p21", "-", "2"}], ")"}], "/", "2"}], ",", 
+                RowBox[{"-", 
+                 RowBox[{"Log", "[", "xr", "]"}]}], ",", "prec"}], "]"}]}], 
+             ",", 
+             RowBox[{"{", 
+              RowBox[{"k", ",", "0", ",", "ms"}], "}"}]}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "linf", ",", "lsup"}], "}"}]}], "]"}]}]}]}], 
+     "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      StyleBox["NECDFHGOdd",
+       FontWeight->"Bold"], "::", "usage"}], "=", 
+     "\"\<\!\(\*StyleBox[\"NECDFHGOdd\",FontWeight->\"Bold\"]\)[Ns, r, ns, \
+p1, p2, p22, ms, x, prec] computes the value for the near-exact CDF or \
+p-value for Lambda for the random sample size case with Hypergeometric sample \
+size, for odd p1 and odd p22,\narguments are (in this order):\n\
+\!\(\*StyleBox[\"Ns\",FontWeight->\"Bold\"]\) - value for the parameter \
+\!\(\*SuperscriptBox[\(N\), \(*\)]\) in the Hypergeometric distribution for \
+random sample sizes\n\!\(\*StyleBox[\"r\",FontWeight->\"Bold\"]\) - value for \
+the parameter r in the Hypergeometric distribution for random sample sizes\n\
+\!\(\*StyleBox[\"ns\",FontWeight->\"Bold\"]\) - value for the parameter \
+\!\(\*SuperscriptBox[\(n\), \(*\)]\) in the Hypergeometric distribution for \
+random sample sizes\n\!\(\*StyleBox[\"p1\",FontWeight->\"Bold\"]\) - the \
+number of variables of the 1st set\n\
+\!\(\*StyleBox[\"p2\",FontWeight->\"Bold\"]\) - the number of variables of \
+the 2nd set\n\!\(\*StyleBox[\"p22\",FontWeight->\"Bold\"]\) - the number of \
+variables in X2 that were taken out in the submodel\n\
+\!\(\*StyleBox[\"ms\",FontWeight->\"Bold\"]\) - the value of exact moments of \
+W=-Log(Lambda) to be matched by the near-exact distribution\n\
+\!\(\*StyleBox[\"x\",FontWeight->\"Bold\"]\) - the value of Lambda for which \
+we want to compute the CDF or p-value\n\
+\!\(\*StyleBox[\"prec\",FontWeight->\"Bold\"]\) - an optional argument \
+setting the number of precision digits for the computation of the GNIG CDF \
+(default value: 150)\>\""}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Near", "-", 
+     RowBox[{"exact", " ", "CDF", " ", "for", " ", "Log", " ", 
+      RowBox[{"Lambda", " ", "--"}], " ", "random", " ", "sample", " ", 
+      "size", " ", 
+      RowBox[{"case", " ", "--"}], " ", "both", " ", "p1", " ", "and", " ", 
+      "p22", " ", "odd"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", "  ", 
+    RowBox[{
+     RowBox[{"expression", " ", "in", " ", "Theorem", " ", "2.2"}], " ", "-", 
+     " ", 
+     RowBox[{"Negative", " ", "Binomial", " ", "sampling"}]}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"NECDFNegBinOdd", "[", 
+     RowBox[{
+     "r_", ",", "ps_", ",", "trunc_", ",", "p1_", ",", "p2_", ",", "p22_", 
+      ",", "ms_", ",", "x_", ",", 
+      RowBox[{"prec_", ":", "150"}]}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "rj", ",", "p21", ",", "pi", ",", "pin", ",", "xr", ",", "linf", ",", 
+        "lsup"}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"linf", "=", 
+        RowBox[{"p1", "+", "p2", "+", "1"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"lsup", "=", "trunc"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"rj", "=", 
+        RowBox[{"RjOdd", "[", 
+         RowBox[{"p1", ",", "p22"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"p21", "=", 
+        RowBox[{"p2", "-", "p22"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"pi", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"MakeWeights", "[", 
+           RowBox[{"i", ",", "p1", ",", "p2", ",", "p22", ",", "ms"}], "]"}], 
+          ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "linf", ",", "lsup"}], "}"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"pin", "=", 
+        RowBox[{"Join", "[", 
+         RowBox[{"pi", ",", 
+          RowBox[{"Makeveccol", "[", 
+           RowBox[{"1", "-", 
+            RowBox[{"Total", "[", 
+             RowBox[{"Transpose", "[", "pi", "]"}], "]"}]}], "]"}], ",", 
+          "2"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"xr", "=", 
+        RowBox[{"Rat", "[", "x", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"1", "-", 
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"PMFNegBin", "[", 
+            RowBox[{"r", ",", "ps", ",", "i", ",", "p1", ",", "p2"}], "]"}], 
+           "*", 
+           RowBox[{"Sum", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"pin", "[", 
+                RowBox[{"[", 
+                 RowBox[{"i", "-", "linf", "+", "1"}], "]"}], "]"}], "[", 
+               RowBox[{"[", 
+                RowBox[{"k", "+", "1"}], "]"}], "]"}], "*", 
+              RowBox[{"GNIGcdf", "[", 
+               RowBox[{"rj", ",", 
+                RowBox[{
+                 RowBox[{"1", "/", "2"}], "+", "k"}], ",", 
+                RowBox[{"LjOdd", "[", 
+                 RowBox[{"p1", ",", "p2", ",", "p22", ",", "i"}], "]"}], ",", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"i", "-", "p21", "-", "2"}], ")"}], "/", "2"}], ",", 
+                RowBox[{"-", 
+                 RowBox[{"Log", "[", "xr", "]"}]}], ",", "prec"}], "]"}]}], 
+             ",", 
+             RowBox[{"{", 
+              RowBox[{"k", ",", "0", ",", "ms"}], "}"}]}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "linf", ",", "lsup"}], "}"}]}], "]"}]}]}]}], 
+     "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      StyleBox["NECDFNegBinOdd",
+       FontWeight->"Bold"], "::", "usage"}], "=", 
+     "\"\<\!\(\*StyleBox[\"NECDFNegBinOdd\",FontWeight->\"Bold\"]\)[r, ps, \
+trunc, p1, p2, p22, ms, x, prec] computes the value for the near-exact CDF or \
+p-value for Lambda for the random sample size case with Negative Binomial \
+sample size, for odd p1 and odd p22,\narguments are (in this order):\nr - \
+value for the parameter r in the Negative Binomial distribution for random \
+sample sizes\nps - value for the parameter \!\(\*SuperscriptBox[\(p\), \(*\)]\
+\) in the Negative Binomial distribution for random sample sizes\ntrunc - \
+upper value for the computation of the truncated Negative Binomial \
+distribution for random sample sizes (value where the distribution will be \
+truncated from above)\n\!\(\*StyleBox[\"p1\",FontWeight->\"Bold\"]\) - the \
+number of variables of the 1st set\n\
+\!\(\*StyleBox[\"p2\",FontWeight->\"Bold\"]\) - the number of variables of \
+the 2nd set\n\!\(\*StyleBox[\"p22\",FontWeight->\"Bold\"]\) - the number of \
+variables in X2 that were taken out in the submodel\n\
+\!\(\*StyleBox[\"ms\",FontWeight->\"Bold\"]\) - the value of exact moments of \
+W=-Log(Lambda) to be matched by the near-exact distribution\n\
+\!\(\*StyleBox[\"x\",FontWeight->\"Bold\"]\) - the value of Lambda for which \
+we want to compute the CDF or p-value\n\
+\!\(\*StyleBox[\"prec\",FontWeight->\"Bold\"]\) - an optional argument \
+setting the number of precision digits for the computation of the GNIG CDF \
+(default value: 150)\>\""}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Near", "-", 
+     RowBox[{"exact", " ", "CDF", " ", "for", " ", "Log", " ", 
+      RowBox[{"Lambda", " ", "--"}], " ", "random", " ", "sample", " ", 
+      "size", " ", 
+      RowBox[{"case", " ", "--"}], " ", "both", " ", "p1", " ", "and", " ", 
+      "p22", " ", "odd"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", "  ", 
+    RowBox[{
+     RowBox[{"expression", " ", "in", " ", "Theorem", " ", "2.2"}], " ", "-", 
+     " ", 
+     RowBox[{"Negative", " ", "Hypergeometric", " ", "sampling"}]}], " ", 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"NECDFNegHGOdd", "[", 
+     RowBox[{
+     "Ns_", ",", "r_", ",", "kk_", ",", "p1_", ",", "p2_", ",", "p22_", ",", 
+      "ms_", ",", "x_", ",", 
+      RowBox[{"prec_", ":", "150"}]}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "rj", ",", "p21", ",", "pi", ",", "pin", ",", "xr", ",", "linf", ",", 
+        "lsup"}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"linf", "=", 
+        RowBox[{"p1", "+", "p2", "+", "1"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"lsup", "=", "r"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"rj", "=", 
+        RowBox[{"RjOdd", "[", 
+         RowBox[{"p1", ",", "p22"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"p21", "=", 
+        RowBox[{"p2", "-", "p22"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"pi", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"MakeWeights", "[", 
+           RowBox[{"i", ",", "p1", ",", "p2", ",", "p22", ",", "ms"}], "]"}], 
+          ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "linf", ",", "lsup"}], "}"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"pin", "=", 
+        RowBox[{"Join", "[", 
+         RowBox[{"pi", ",", 
+          RowBox[{"Makeveccol", "[", 
+           RowBox[{"1", "-", 
+            RowBox[{"Total", "[", 
+             RowBox[{"Transpose", "[", "pi", "]"}], "]"}]}], "]"}], ",", 
+          "2"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"xr", "=", 
+        RowBox[{"Rat", "[", "x", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"1", "-", 
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"PMFNegHG", "[", 
+            RowBox[{
+            "Ns", ",", "r", ",", "kk", ",", "i", ",", "p1", ",", "p2"}], 
+            "]"}], "*", 
+           RowBox[{"Sum", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"pin", "[", 
+                RowBox[{"[", 
+                 RowBox[{"i", "-", "linf", "+", "1"}], "]"}], "]"}], "[", 
+               RowBox[{"[", 
+                RowBox[{"k", "+", "1"}], "]"}], "]"}], "*", 
+              RowBox[{"GNIGcdf", "[", 
+               RowBox[{"rj", ",", 
+                RowBox[{
+                 RowBox[{"1", "/", "2"}], "+", "k"}], ",", 
+                RowBox[{"LjOdd", "[", 
+                 RowBox[{"p1", ",", "p2", ",", "p22", ",", "i"}], "]"}], ",", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"i", "-", "p21", "-", "2"}], ")"}], "/", "2"}], ",", 
+                RowBox[{"-", 
+                 RowBox[{"Log", "[", "xr", "]"}]}], ",", "prec"}], "]"}]}], 
+             ",", 
+             RowBox[{"{", 
+              RowBox[{"k", ",", "0", ",", "ms"}], "}"}]}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "linf", ",", "lsup"}], "}"}]}], "]"}]}]}]}], 
+     "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      StyleBox["NECDFNegHGOdd",
+       FontWeight->"Bold"], "::", "usage"}], "=", 
+     "\"\<\!\(\*StyleBox[\"NECDFNegHGOdd\",FontWeight->\"Bold\"]\)[Ns, r, k, \
+p1, p2, p22, ms, x, prec] computes the value for the near-exact CDF or \
+p-value for Lambda for the random sample size case with Negative \
+Hypergeometric sample size, for odd p1 and odd p22,\narguments are (in this \
+order):\n\!\(\*StyleBox[\"Ns\",FontWeight->\"Bold\"]\) - value for the \
+parameter \!\(\*SuperscriptBox[\(N\), \(*\)]\) in the Negative Hypergeometric \
+distribution for random sample sizes\n\!\(\*StyleBox[\"r\",FontWeight->\"Bold\
+\"]\) - value for the parameter r in the Negative Hypergeometric distribution \
+for random sample sizes\n\!\(\*StyleBox[\"k\",FontWeight->\"Bold\"]\) - value \
+for the parameter k in the Negative Hypergeometric distribution for random \
+sample sizes\n\!\(\*StyleBox[\"p1\",FontWeight->\"Bold\"]\) - the number of \
+variables of the 1st set\n\!\(\*StyleBox[\"p2\",FontWeight->\"Bold\"]\) - the \
+number of variables of the 2nd set\n\!\(\*StyleBox[\"p22\",FontWeight->\"Bold\
+\"]\) - the number of variables in X2 that were taken out in the submodel\n\!\
+\(\*StyleBox[\"ms\",FontWeight->\"Bold\"]\) - the value of exact moments of \
+W=-Log(Lambda) to be matched by the near-exact distribution\n\
+\!\(\*StyleBox[\"x\",FontWeight->\"Bold\"]\) - the value of Lambda for which \
+we want to compute the CDF or p-value\n\
+\!\(\*StyleBox[\"prec\",FontWeight->\"Bold\"]\) - an optional argument \
+setting the number of precision digits for the computation of the GNIG CDF \
+(default value: 150)\>\""}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**",
+      "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", 
+     "**", "**", "**", "**"}], "******)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Module", " ", "for", " ", "the", " ", "computation", " ", "of", " ", 
+     "the", " ", "rate", " ", "parameters", " ", "for", " ", "the", " ", 
+     "exact", " ", "CDF", " ", "of", " ", 
+     RowBox[{"(", 
+      RowBox[{"non", "-", "partial"}], ")"}], " ", "lambda", " ", "for", " ", 
+     "the", " ", "random", " ", "sample", " ", "size", " ", "case"}], " ", 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Lj", "[", 
+      RowBox[{"p1_", ",", "p2_", ",", "i_"}], "]"}], ":=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"i", "-", "2", "-", "j"}], ")"}], "/", "2"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"j", ",", "1", ",", 
+         RowBox[{"p1", "+", "p2", "-", "2"}]}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Exact", " ", "CDF", " ", "of", " ", 
+     RowBox[{"(", 
+      RowBox[{"non", "-", "partial"}], ")"}], " ", "Lambda", " ", "for", " ", 
+     "the", " ", "random", " ", "sample", " ", "size", " ", 
+     RowBox[{"case", " ", "--"}], " ", "even", " ", "p1", " ", "or", " ", 
+     "even", " ", "p22"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"used", " ", "to", " ", "compute", " ", "p"}], "-", 
+     RowBox[{"values", " ", "for", " ", "the", " ", "fit", " ", "of", " ", 
+      RowBox[{"the", " ", "'"}], 
+      RowBox[{"global", "'"}], " ", "model"}], " ", "-", " ", 
+     RowBox[{"Poisson", " ", "sampling"}]}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ExCDFOrigPoiEven", "[", 
+     RowBox[{"lambda_", ",", "trunc_", ",", "p1_", ",", "p2_", ",", "x_", ",", 
+      RowBox[{"prec_", ":", "150"}]}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"rj", ",", "p21", ",", "lj", ",", "linf", ",", "lsup"}], "}"}],
+       ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"linf", "=", 
+        RowBox[{"p1", "+", "p2", "+", "1"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"lsup", "=", "trunc"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"xr", "=", 
+        RowBox[{"Rat", "[", "x", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"rj", "=", 
+        RowBox[{"RjEven", "[", 
+         RowBox[{"p1", ",", "p2"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"1", "-", 
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"PMFPoi", "[", 
+            RowBox[{"lambda", ",", "i", ",", "p1", ",", "p2"}], "]"}], "*", 
+           RowBox[{"GIGcdf", "[", 
+            RowBox[{"rj", ",", 
+             RowBox[{"Lj", "[", 
+              RowBox[{"p1", ",", "p2", ",", "i"}], "]"}], ",", 
+             RowBox[{"-", 
+              RowBox[{"Log", "[", "xr", "]"}]}], ",", "prec"}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "linf", ",", "lsup"}], "}"}]}], "]"}]}]}]}], 
+     "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      StyleBox["ExCDFOrigPoiEven",
+       FontWeight->"Bold"], "::", "usage"}], "=", 
+     "\"\<\!\(\*StyleBox[\"ExCDFOrigPoiEven\",FontWeight->\"Bold\"]\)[lambda, \
+trunc, ns, p1, p2, x, prec] computes the value for the exact CDF or p-value \
+for the non-partial Lambda for the random sample size case with Poisson \
+sample size, for even p1 or even p22 (used for the test of fit of the \
+original models)\narguments are (in this order):\n\
+\!\(\*StyleBox[\"lambda\",FontWeight->\"Bold\"]\) - value for the parameter \
+lambda in the Poisson distribution for random sample sizes\ntrunc - upper \
+value for the computation of the truncated Poisson distribution for random \
+sample sizes (value where the distribution will be truncated from above)\n\
+\!\(\*StyleBox[\"p1\",FontWeight->\"Bold\"]\) - the number of variables of \
+the 1st set\n\!\(\*StyleBox[\"p2\",FontWeight->\"Bold\"]\) - the number of \
+variables of the 2nd set\n\!\(\*StyleBox[\"x\",FontWeight->\"Bold\"]\) - the \
+value of Lambda for which we want to compute the CDF or p-value\n\
+\!\(\*StyleBox[\"prec\",FontWeight->\"Bold\"]\) - an optional argument \
+setting the number of precision digits for the computation of the GNIG CDF \
+(default value: 150)\>\""}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Exact", " ", "CDF", " ", "of", " ", "log", " ", 
+     RowBox[{"(", 
+      RowBox[{"non", "-", "partial"}], ")"}], " ", "Lambda", " ", "for", " ", 
+     "the", " ", "random", " ", "sample", " ", "size", " ", 
+     RowBox[{"case", " ", "--"}], " ", "even", " ", "p1", " ", "or", " ", 
+     "even", " ", "p22"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"used", " ", "to", " ", "compute", " ", "p"}], "-", 
+     RowBox[{"values", " ", "for", " ", "the", " ", "fit", " ", "of", " ", 
+      RowBox[{"the", " ", "'"}], 
+      RowBox[{"global", "'"}], " ", "model"}], " ", "-", " ", 
+     RowBox[{"Binomial", " ", "sampling"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ExCDFOrigBinEven", "[", 
+     RowBox[{"ns_", ",", "ps_", ",", "p1_", ",", "p2_", ",", "x_", ",", 
+      RowBox[{"prec_", ":", "150"}]}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"rj", ",", "p21", ",", "lj", ",", "linf", ",", "lsup"}], "}"}],
+       ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"linf", "=", 
+        RowBox[{"p1", "+", "p2", "+", "1"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"lsup", "=", "ns"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"xr", "=", 
+        RowBox[{"Rat", "[", "x", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"rj", "=", 
+        RowBox[{"RjEven", "[", 
+         RowBox[{"p1", ",", "p2"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"1", "-", 
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"PMFBin", "[", 
+            RowBox[{"ns", ",", "ps", ",", "i", ",", "p1", ",", "p2"}], "]"}], 
+           "*", 
+           RowBox[{"GIGcdf", "[", 
+            RowBox[{"rj", ",", 
+             RowBox[{"Lj", "[", 
+              RowBox[{"p1", ",", "p2", ",", "i"}], "]"}], ",", 
+             RowBox[{"-", 
+              RowBox[{"Log", "[", "xr", "]"}]}], ",", "prec"}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "linf", ",", "lsup"}], "}"}]}], "]"}]}]}]}], 
+     "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      StyleBox["ExCDFOrigBinEven",
+       FontWeight->"Bold"], "::", "usage"}], "=", 
+     "\"\<\!\(\*StyleBox[\"ExCDFOrigBinEven\",FontWeight->\"Bold\"]\)[Ns, r, \
+ns, p1, p2, x, prec] computes the value for the exact CDF or p-value for the \
+non-partial Lambda for the random sample size case with Binomial sample size, \
+for even p1 or even p22 (used for the test of fit of the original models)\n\
+arguments are (in this order):\nn\!\(\*StyleBox[\"s\",FontWeight->\"Bold\"]\) \
+- value for the parameter \!\(\*SuperscriptBox[\(n\), \(*\)]\) in the \
+Binomial distribution for random sample sizes\n\
+\!\(\*StyleBox[\(p\*StyleBox[\"s\",FontWeight->\"Bold\"]\)]\) - value for the \
+parameter \!\(\*SuperscriptBox[\(p\), \(*\)]\) in the Binomial distribution \
+for random sample sizes\n\!\(\*StyleBox[\"p1\",FontWeight->\"Bold\"]\) - the \
+number of variables of the 1st set\n\
+\!\(\*StyleBox[\"p2\",FontWeight->\"Bold\"]\) - the number of variables of \
+the 2nd set\n\!\(\*StyleBox[\"x\",FontWeight->\"Bold\"]\) - the value of \
+Lambda for which we want to compute the CDF or p-value\n\!\(\*StyleBox[\"prec\
+\",FontWeight->\"Bold\"]\) - an optional argument setting the number of \
+precision digits for the computation of the GNIG CDF (default value: \
+150)\>\""}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Exact", " ", "CDF", " ", "of", " ", "log", " ", 
+     RowBox[{"(", 
+      RowBox[{"non", "-", "partial"}], ")"}], " ", "Lambda", " ", "for", " ", 
+     "the", " ", "random", " ", "sample", " ", "size", " ", 
+     RowBox[{"case", " ", "--"}], " ", "even", " ", "p1", " ", "or", " ", 
+     "even", " ", "p22"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"used", " ", "to", " ", "compute", " ", "p"}], "-", 
+     RowBox[{"values", " ", "for", " ", "the", " ", "fit", " ", "of", " ", 
+      RowBox[{"the", " ", "'"}], 
+      RowBox[{"global", "'"}], " ", "model"}], " ", "-", " ", 
+     RowBox[{"Hypergeometric", " ", "sampling"}]}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ExCDFOrigHGEven", "[", 
+     RowBox[{
+     "Ns_", ",", "r_", ",", "ns_", ",", "p1_", ",", "p2_", ",", "x_", ",", 
+      RowBox[{"prec_", ":", "150"}]}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"rj", ",", "p21", ",", "lj", ",", "linf", ",", "lsup"}], "}"}],
+       ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"linf", "=", 
+        RowBox[{"Max", "[", 
+         RowBox[{
+          RowBox[{"ns", "+", "r", "-", "Ns"}], ",", 
+          RowBox[{"p1", "+", "p2", "+", "1"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"lsup", "=", 
+        RowBox[{"Min", "[", 
+         RowBox[{"ns", ",", "r"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"xr", "=", 
+        RowBox[{"Rat", "[", "x", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"rj", "=", 
+        RowBox[{"RjEven", "[", 
+         RowBox[{"p1", ",", "p2"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"1", "-", 
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"PMFHG", "[", 
+            RowBox[{
+            "Ns", ",", "r", ",", "ns", ",", "i", ",", "p1", ",", "p2"}], 
+            "]"}], "*", 
+           RowBox[{"GIGcdf", "[", 
+            RowBox[{"rj", ",", 
+             RowBox[{"Lj", "[", 
+              RowBox[{"p1", ",", "p2", ",", "i"}], "]"}], ",", 
+             RowBox[{"-", 
+              RowBox[{"Log", "[", "xr", "]"}]}], ",", "prec"}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "linf", ",", "lsup"}], "}"}]}], "]"}]}]}]}], 
+     "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      StyleBox["ExCDFOrigHGEven",
+       FontWeight->"Bold"], "::", "usage"}], "=", 
+     "\"\<\!\(\*StyleBox[\"ExCDFOrigHGEven\",FontWeight->\"Bold\"]\)[Ns, r, \
+ns, p1, p2, x, prec] computes the value for the exact CDF or p-value for the \
+non-partial Lambda for the random sample size case with Hypergeometric sample \
+size, for even p1 or even p22 (used for the test of fit of the original \
+models)\narguments are (in this order):\n\
+\!\(\*StyleBox[\"Ns\",FontWeight->\"Bold\"]\) - value for the parameter \
+\!\(\*SuperscriptBox[\(N\), \(*\)]\) in the Hypergeometric distribution for \
+random sample sizes\n\!\(\*StyleBox[\"r\",FontWeight->\"Bold\"]\) - value for \
+the parameter r in the Hypergeometric distribution for random sample sizes\n\
+\!\(\*StyleBox[\"ns\",FontWeight->\"Bold\"]\) - value for the parameter \
+\!\(\*SuperscriptBox[\(n\), \(*\)]\) in the Hypergeometric distribution for \
+random sample sizes\n\!\(\*StyleBox[\"p1\",FontWeight->\"Bold\"]\) - the \
+number of variables of the 1st set\n\
+\!\(\*StyleBox[\"p2\",FontWeight->\"Bold\"]\) - the number of variables of \
+the 2nd set\n\!\(\*StyleBox[\"x\",FontWeight->\"Bold\"]\) - the value of \
+Lambda for which we want to compute the CDF or p-value\n\!\(\*StyleBox[\"prec\
+\",FontWeight->\"Bold\"]\) - an optional argument setting the number of \
+precision digits for the computation of the GNIG CDF (default value: \
+150)\>\""}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Exact", " ", "CDF", " ", "of", " ", "log", " ", 
+     RowBox[{"(", 
+      RowBox[{"non", "-", "partial"}], ")"}], " ", "Lambda", " ", "for", " ", 
+     "the", " ", "random", " ", "sample", " ", "size", " ", 
+     RowBox[{"case", " ", "--"}], " ", "even", " ", "p1", " ", "or", " ", 
+     "even", " ", "p22"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"used", " ", "to", " ", "compute", " ", "p"}], "-", 
+     RowBox[{"values", " ", "for", " ", "the", " ", "fit", " ", "of", " ", 
+      RowBox[{"the", " ", "'"}], 
+      RowBox[{"global", "'"}], " ", "model"}], " ", "-", " ", 
+     RowBox[{"Negative", " ", "Binomial", " ", "sampling"}]}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ExCDFOrigNegBinEven", "[", 
+     RowBox[{
+     "r_", ",", "ps_", ",", "trunc_", ",", "p1_", ",", "p2_", ",", "x_", ",", 
+      RowBox[{"prec_", ":", "150"}]}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"rj", ",", "p21", ",", "lj", ",", "linf", ",", "lsup"}], "}"}],
+       ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"linf", "=", 
+        RowBox[{"p1", "+", "p2", "+", "1"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"lsup", "=", "trunc"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"xr", "=", 
+        RowBox[{"Rat", "[", "x", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"rj", "=", 
+        RowBox[{"RjEven", "[", 
+         RowBox[{"p1", ",", "p2"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"1", "-", 
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"PMFNegBin", "[", 
+            RowBox[{"r", ",", "ps", ",", "i", ",", "p1", ",", "p2"}], "]"}], 
+           "*", 
+           RowBox[{"GIGcdf", "[", 
+            RowBox[{"rj", ",", 
+             RowBox[{"Lj", "[", 
+              RowBox[{"p1", ",", "p2", ",", "i"}], "]"}], ",", 
+             RowBox[{"-", 
+              RowBox[{"Log", "[", "xr", "]"}]}], ",", "prec"}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "linf", ",", "lsup"}], "}"}]}], "]"}]}]}]}], 
+     "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      StyleBox["ExCDFOrigNegBinEven",
+       FontWeight->"Bold"], "::", "usage"}], "=", 
+     "\"\<\!\(\*StyleBox[\"ExCDFOrigNegBinEven\",FontWeight->\"Bold\"]\)[r, \
+ps, trunc, p1, p2, x, prec] computes the value for the exact CDF or p-value \
+for the non-partial Lambda for the random sample size case with Negative \
+Binomial sample size, for even p1 or even p22 (used for the test of fit of \
+the original models)\narguments are (in this order):\nr - value for the \
+parameter r in the Negative Binomial distribution for random sample sizes\n\!\
+\(\*StyleBox[\(p\*StyleBox[\"s\",FontWeight->\"Bold\"]\)]\) - value for the \
+parameter \!\(\*SuperscriptBox[\(p\), \(*\)]\) in the Negative Binomial \
+distribution for random sample sizes\ntrunc - upper value for the computation \
+of the truncated Negative Binomial distribution for random sample sizes \
+(value where the distribution will be truncated from above)\n\
+\!\(\*StyleBox[\"p1\",FontWeight->\"Bold\"]\) - the number of variables of \
+the 1st set\n\!\(\*StyleBox[\"p2\",FontWeight->\"Bold\"]\) - the number of \
+variables of the 2nd set\n\!\(\*StyleBox[\"x\",FontWeight->\"Bold\"]\) - the \
+value of Lambda for which we want to compute the CDF or p-value\n\
+\!\(\*StyleBox[\"prec\",FontWeight->\"Bold\"]\) - an optional argument \
+setting the number of precision digits for the computation of the GNIG CDF \
+(default value: 150)\>\""}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Exact", " ", "CDF", " ", "of", " ", "log", " ", 
+     RowBox[{"(", 
+      RowBox[{"non", "-", "partial"}], ")"}], " ", "Lambda", " ", "for", " ", 
+     "the", " ", "random", " ", "sample", " ", "size", " ", 
+     RowBox[{"case", " ", "--"}], " ", "even", " ", "p1", " ", "or", " ", 
+     "even", " ", "p22"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"used", " ", "to", " ", "compute", " ", "p"}], "-", 
+     RowBox[{"values", " ", "for", " ", "the", " ", "fit", " ", "of", " ", 
+      RowBox[{"the", " ", "'"}], 
+      RowBox[{"global", "'"}], " ", "model"}], " ", "-", " ", 
+     RowBox[{"Negative", " ", "Hypergeometric", " ", "sampling"}]}], " ", 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ExCDFOrigNegHGEven", "[", 
+     RowBox[{
+     "Ns_", ",", "r_", ",", "k_", ",", "p1_", ",", "p2_", ",", "x_", ",", 
+      RowBox[{"prec_", ":", "150"}]}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"rj", ",", "p21", ",", "lj", ",", "linf", ",", "lsup"}], "}"}],
+       ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"linf", "=", 
+        RowBox[{"p1", "+", "p2", "+", "1"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"lsup", "=", "r"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"xr", "=", 
+        RowBox[{"Rat", "[", "x", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"rj", "=", 
+        RowBox[{"RjEven", "[", 
+         RowBox[{"p1", ",", "p2"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"1", "-", 
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"PMFNegHG", "[", 
+            RowBox[{
+            "Ns", ",", "r", ",", "k", ",", "i", ",", "p1", ",", "p2"}], "]"}],
+            "*", 
+           RowBox[{"GIGcdf", "[", 
+            RowBox[{"rj", ",", 
+             RowBox[{"Lj", "[", 
+              RowBox[{"p1", ",", "p2", ",", "i"}], "]"}], ",", 
+             RowBox[{"-", 
+              RowBox[{"Log", "[", "xr", "]"}]}], ",", "prec"}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "linf", ",", "lsup"}], "}"}]}], "]"}]}]}]}], 
+     "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      StyleBox["ExCDFOrigNegHGEven",
+       FontWeight->"Bold"], "::", "usage"}], "=", 
+     "\"\<\!\(\*StyleBox[\"ExCDFOrigNegHGEven\",FontWeight->\"Bold\"]\)[Ns, \
+r, k, p1, p2, x, prec] computes the value for the exact CDF or p-value for \
+the non-partial Lambda for the random sample size case with Negative \
+Hypergeometric sample size, for even p1 or even p22 (used for the test of fit \
+of the original models)\narguments are (in this order):\nNs - value for the \
+parameter \!\(\*SuperscriptBox[\(N\), \(*\)]\) in the Negative Hypergeometric \
+distribution for random sample sizes\nr - value for the parameter r in the \
+Negative Hypergeometric distribution for random sample sizes\nk - value for \
+the parameter k in the Negative Hypergeometric distribution for random sample \
+sizes\n\!\(\*StyleBox[\"p1\",FontWeight->\"Bold\"]\) - the number of \
+variables of the 1st set\n\!\(\*StyleBox[\"p2\",FontWeight->\"Bold\"]\) - the \
+number of variables of the 2nd set\n\
+\!\(\*StyleBox[\"x\",FontWeight->\"Bold\"]\) - the value of Lambda for which \
+we want to compute the CDF or p-value\n\
+\!\(\*StyleBox[\"prec\",FontWeight->\"Bold\"]\) - an optional argument \
+setting the number of precision digits for the computation of the GNIG CDF \
+(default value: 150)\>\""}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    StyleBox[
+     RowBox[{
+      StyleBox["(",
+       FontWeight->"Bold"], "*"}]], 
+    RowBox[{
+     RowBox[{"**", "**", "**"}], "*", 
+     RowBox[{
+     "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**",
+       "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**",
+       "**", "**"}], "*", 
+     RowBox[{"**", "**", "**", "**"}]}], "******)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"**", "  ", "GIG"}], "  ", "***)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Rat", "[", "x_", "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", "nn", "}"}], ",", "\n", 
+      RowBox[{"If", " ", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"ToString", "[", 
+          RowBox[{"Head", "[", "x", "]"}], "]"}], "\[NotEqual]", 
+         "\"\<Real\>\""}], ",", "x", ",", "\n", 
+        RowBox[{
+         RowBox[{"nn", "=", 
+          RowBox[{
+           RowBox[{"StringLength", "[", 
+            RowBox[{"ToString", "[", 
+             RowBox[{"x", ",", "InputForm"}], "]"}], "]"}], "-", "1"}]}], ";", 
+         RowBox[{
+          RowBox[{"Round", "[", 
+           RowBox[{"x", "*", 
+            RowBox[{"10", "^", "nn"}]}], "]"}], "/", 
+          RowBox[{"10", "^", "nn"}]}]}]}], "]"}]}], "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"SetAttributes", "[", 
+    RowBox[{"Rat", ",", "Listable"}], "]"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"Makec", "[", 
+     RowBox[{"r_", ",", "l_", ",", "p_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", "c", "}"}], ",", "\n", 
+      RowBox[{
+       RowBox[{"c", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"Table", "[", 
+           RowBox[{"1", ",", 
+            RowBox[{"{", 
+             RowBox[{"j", ",", "1", ",", 
+              RowBox[{"Max", "[", "r", "]"}]}], "}"}]}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "1", ",", "p"}], "}"}]}], "]"}]}], ";", "\n", 
+       RowBox[{"Do", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"c", "[", 
+           RowBox[{"[", 
+            RowBox[{"i", ",", 
+             RowBox[{"r", "[", 
+              RowBox[{"[", "i", "]"}], "]"}]}], "]"}], "]"}], "=", 
+          RowBox[{
+           RowBox[{"Product", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"l", "[", 
+                 RowBox[{"[", "j", "]"}], "]"}], "-", 
+                RowBox[{"l", "[", 
+                 RowBox[{"[", "i", "]"}], "]"}]}], ")"}], "^", 
+              RowBox[{"(", 
+               RowBox[{"-", 
+                RowBox[{"r", "[", 
+                 RowBox[{"[", "j", "]"}], "]"}]}], ")"}]}], ",", 
+             RowBox[{"{", 
+              RowBox[{"j", ",", "1", ",", 
+               RowBox[{"i", "-", "1"}]}], "}"}]}], "]"}], "*", 
+           RowBox[{
+            RowBox[{"Product", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"l", "[", 
+                  RowBox[{"[", "j", "]"}], "]"}], "-", 
+                 RowBox[{"l", "[", 
+                  RowBox[{"[", "i", "]"}], "]"}]}], ")"}], "^", 
+               RowBox[{"(", 
+                RowBox[{"-", 
+                 RowBox[{"r", "[", 
+                  RowBox[{"[", "j", "]"}], "]"}]}], ")"}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"j", ",", 
+                RowBox[{"i", "+", "1"}], ",", "p"}], "}"}]}], "]"}], "/", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"r", "[", 
+                RowBox[{"[", "i", "]"}], "]"}], "-", "1"}], ")"}], 
+             "!"}]}]}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "1", ",", "p"}], "}"}]}], "]"}], ";", "\n", 
+       RowBox[{"Do", "[", 
+        RowBox[{
+         RowBox[{"Do", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"c", "[", 
+             RowBox[{"[", 
+              RowBox[{"i", ",", 
+               RowBox[{
+                RowBox[{"r", "[", 
+                 RowBox[{"[", "i", "]"}], "]"}], "-", "k"}]}], "]"}], "]"}], 
+            "=", 
+            RowBox[{
+             RowBox[{"Sum", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"r", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}], "-", "k", "+", "j", "-", 
+                    "1"}], ")"}], "!"}], "*", 
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"Sum", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"r", "[", 
+                    RowBox[{"[", "h", "]"}], "]"}], "/", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"l", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}], "-", 
+                    RowBox[{"l", "[", 
+                    RowBox[{"[", "h", "]"}], "]"}]}], ")"}], "^", "j"}]}], 
+                    ",", 
+                    RowBox[{"{", 
+                    RowBox[{"h", ",", "1", ",", 
+                    RowBox[{"i", "-", "1"}]}], "}"}]}], "]"}], "+", 
+                    RowBox[{"Sum", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"r", "[", 
+                    RowBox[{"[", "h", "]"}], "]"}], "/", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"l", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}], "-", 
+                    RowBox[{"l", "[", 
+                    RowBox[{"[", "h", "]"}], "]"}]}], ")"}], "^", "j"}]}], 
+                    ",", 
+                    RowBox[{"{", 
+                    RowBox[{"h", ",", 
+                    RowBox[{"i", "+", "1"}], ",", "p"}], "}"}]}], "]"}]}], 
+                   ")"}], "*", 
+                  RowBox[{
+                   RowBox[{"c", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}], "[", 
+                   RowBox[{"[", 
+                    RowBox[{
+                    RowBox[{"r", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}], "-", 
+                    RowBox[{"(", 
+                    RowBox[{"k", "-", "j"}], ")"}]}], "]"}], "]"}]}], ")"}], 
+                "/", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"r", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}], "-", "k", "-", "1"}], 
+                  ")"}], "!"}]}], ",", 
+               RowBox[{"{", 
+                RowBox[{"j", ",", "1", ",", "k"}], "}"}]}], "]"}], "/", 
+             "k"}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{"k", ",", "1", ",", 
+             RowBox[{
+              RowBox[{"r", "[", 
+               RowBox[{"[", "i", "]"}], "]"}], "-", "1"}]}], "}"}]}], "]"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "1", ",", "p"}], "}"}]}], "]"}], ";", "\n", 
+       "c"}]}], "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"GIGpdf", "[", 
+     RowBox[{"r_", ",", "li_", ",", "zi_", ",", 
+      RowBox[{"prec_", ":", "150"}]}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"p", ",", "l", ",", "c", ",", "z"}], "}"}], ",", "\n", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"Count", "[", 
+           RowBox[{"r", ",", "_Integer"}], "]"}], "==", 
+          RowBox[{"Length", "[", "r", "]"}]}], "&&", 
+         RowBox[{"And", "@@", 
+          RowBox[{"NonNegative", "[", "r", "]"}]}], "&&", 
+         RowBox[{"And", "@@", 
+          RowBox[{"Positive", "[", "li", "]"}]}], "&&", 
+         RowBox[{
+          RowBox[{"Length", "[", "r", "]"}], "==", 
+          RowBox[{"Length", "[", "li", "]"}]}]}], ",", "\n", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"zi", ">=", "0"}], ",", "\n", 
+          RowBox[{
+           RowBox[{"p", "=", 
+            RowBox[{"Length", "[", "r", "]"}]}], ";", 
+           RowBox[{"l", "=", 
+            RowBox[{"Rat", "[", "li", "]"}]}], ";", 
+           RowBox[{"c", "=", 
+            RowBox[{"Makec", "[", 
+             RowBox[{"r", ",", "l", ",", "p"}], "]"}]}], ";", 
+           RowBox[{"z", "=", 
+            RowBox[{"Rat", "[", "zi", "]"}]}], ";", "\n", 
+           RowBox[{"SetPrecision", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Product", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"l", "[", 
+                  RowBox[{"[", "j", "]"}], "]"}], "^", 
+                 RowBox[{"r", "[", 
+                  RowBox[{"[", "j", "]"}], "]"}]}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"j", ",", "1", ",", "p"}], "}"}]}], "]"}], "*", 
+              RowBox[{"Sum", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"Sum", "[", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"c", "[", 
+                    RowBox[{"[", "j", "]"}], "]"}], "[", 
+                    RowBox[{"[", "k", "]"}], "]"}], "*", 
+                    RowBox[{"z", "^", 
+                    RowBox[{"(", 
+                    RowBox[{"k", "-", "1"}], ")"}]}]}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"k", ",", "1", ",", 
+                    RowBox[{"r", "[", 
+                    RowBox[{"[", "j", "]"}], "]"}]}], "}"}]}], "]"}], "*", 
+                 RowBox[{"Exp", "[", 
+                  RowBox[{
+                   RowBox[{"-", 
+                    RowBox[{"l", "[", 
+                    RowBox[{"[", "j", "]"}], "]"}]}], "*", "z"}], "]"}]}], 
+                ",", 
+                RowBox[{"{", 
+                 RowBox[{"j", ",", "1", ",", "p"}], "}"}]}], "]"}]}], ",", 
+             "prec"}], "]"}]}], ",", "\n", 
+          RowBox[{
+          "Print", "[", "\"\<Third argument must be a positive value\>\"", 
+           "]"}]}], "]"}]}], "]"}]}], "]"}]}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"GIGcdf", "[", 
+     RowBox[{"r_", ",", "li_", ",", "zi_", ",", 
+      RowBox[{"prec_", ":", "150"}]}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"p", ",", "l", ",", "c", ",", "z"}], "}"}], ",", "\n", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"Count", "[", 
+           RowBox[{"r", ",", "_Integer"}], "]"}], "==", 
+          RowBox[{"Length", "[", "r", "]"}]}], "&&", 
+         RowBox[{"And", "@@", 
+          RowBox[{"NonNegative", "[", "r", "]"}]}], "&&", 
+         RowBox[{"And", "@@", 
+          RowBox[{"Positive", "[", "li", "]"}]}], "&&", 
+         RowBox[{
+          RowBox[{"Length", "[", "r", "]"}], "==", 
+          RowBox[{"Length", "[", "li", "]"}]}]}], ",", "\n", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"zi", ">", "0"}], ",", "\n", 
+          RowBox[{
+           RowBox[{"p", "=", 
+            RowBox[{"Length", "[", "r", "]"}]}], ";", 
+           RowBox[{"l", "=", 
+            RowBox[{"Rat", "[", "li", "]"}]}], ";", 
+           RowBox[{"c", "=", 
+            RowBox[{"Makec", "[", 
+             RowBox[{"r", ",", "l", ",", "p"}], "]"}]}], ";", 
+           RowBox[{"z", "=", 
+            RowBox[{"Rat", "[", "zi", "]"}]}], ";", "\n", 
+           RowBox[{"1", "-", 
+            RowBox[{
+             RowBox[{"Product", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"l", "[", 
+                 RowBox[{"[", "j", "]"}], "]"}], "^", 
+                RowBox[{"r", "[", 
+                 RowBox[{"[", "j", "]"}], "]"}]}], ",", 
+               RowBox[{"{", 
+                RowBox[{"j", ",", "1", ",", "p"}], "}"}]}], "]"}], "*", 
+             RowBox[{"SetPrecision", "[", 
+              RowBox[{
+               RowBox[{"Sum", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Sum", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"c", "[", 
+                    RowBox[{"[", "j", "]"}], "]"}], "[", 
+                    RowBox[{"[", "k", "]"}], "]"}], "*", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"k", "-", "1"}], ")"}], "!"}], "*", 
+                    RowBox[{"Sum", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"z", "^", "i"}], "/", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"i", "!"}], "*", 
+                    RowBox[{
+                    RowBox[{"l", "[", 
+                    RowBox[{"[", "j", "]"}], "]"}], "^", 
+                    RowBox[{"(", 
+                    RowBox[{"k", "-", "i"}], ")"}]}]}], ")"}]}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"i", ",", "0", ",", 
+                    RowBox[{"k", "-", "1"}]}], "}"}]}], "]"}]}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"k", ",", "1", ",", 
+                    RowBox[{"r", "[", 
+                    RowBox[{"[", "j", "]"}], "]"}]}], "}"}]}], "]"}], "*", 
+                  RowBox[{"Exp", "[", 
+                   RowBox[{
+                    RowBox[{"-", 
+                    RowBox[{"l", "[", 
+                    RowBox[{"[", "j", "]"}], "]"}]}], "*", "z"}], "]"}]}], 
+                 ",", 
+                 RowBox[{"{", 
+                  RowBox[{"j", ",", "1", ",", "p"}], "}"}]}], "]"}], ",", 
+               "prec"}], "]"}]}]}]}], ",", "\n", 
+          RowBox[{
+          "Print", "[", "\"\<Third argument must be a positive value\>\"", 
+           "]"}]}], "]"}]}], "]"}]}], "]"}]}], "\[IndentingNewLine]", "\n", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"**", "  ", "GNIG"}], "   ", "***)"}], "\n", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Hgeo", "[", 
+     RowBox[{"b_", ",", "k_", ",", "x_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "F11", ",", "F12", ",", "F21", ",", "F22", ",", "F31", ",", "F32", ",",
+         "res", ",", "gg", ",", "gg2", ",", "rr"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"F11", "=", "1"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"F12", "=", "0"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"F21", "=", "0"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"F22", "=", "b"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"res", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{"0", ",", 
+          RowBox[{"{", 
+           RowBox[{"j", ",", "1", ",", "k"}], "}"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"rr", "=", 
+        RowBox[{"Re", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"-", "x"}], ")"}], "^", 
+           RowBox[{"(", 
+            RowBox[{"-", "b"}], ")"}]}], "*", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"Gamma", "[", "b", "]"}], "-", 
+            RowBox[{"Gamma", "[", 
+             RowBox[{"b", ",", 
+              RowBox[{"-", "x"}]}], "]"}]}], ")"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"res", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "=", 
+        RowBox[{"b", "*", "rr"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Do", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"F31", "=", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"b", "+", "j"}], ")"}], "/", 
+              RowBox[{"(", 
+               RowBox[{"x", "*", "j"}], ")"}]}], "*", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"x", "+", "b", "+", "j", "-", "1"}], ")"}], "*", 
+                "F21"}], "-", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"b", "+", "j", "-", "1"}], ")"}], "*", "F11"}]}], 
+              ")"}]}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"F32", "=", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"b", "+", "j"}], ")"}], "/", 
+              RowBox[{"(", 
+               RowBox[{"x", "*", "j"}], ")"}]}], "*", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"x", "+", "b", "+", "j", "-", "1"}], ")"}], "*", 
+                "F22"}], "-", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"b", "+", "j", "-", "1"}], ")"}], "*", "F12"}]}], 
+              ")"}]}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"F11", "=", "F21"}], ";", "\[IndentingNewLine]", 
+           RowBox[{"F12", "=", "F22"}], ";", "\[IndentingNewLine]", 
+           RowBox[{"F21", "=", "F31"}], ";", "\[IndentingNewLine]", 
+           RowBox[{"F22", "=", "F32"}], ";", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"res", "[", 
+             RowBox[{"[", 
+              RowBox[{"j", "+", "1"}], "]"}], "]"}], "=", 
+            RowBox[{
+             RowBox[{"F31", "*", 
+              RowBox[{"Exp", "[", "x", "]"}]}], "+", 
+             RowBox[{"F32", "*", "rr"}]}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"j", ",", "1", ",", 
+           RowBox[{"k", "-", "1"}]}], "}"}]}], "]"}], ";", 
+       "\[IndentingNewLine]", "res"}]}], "\[IndentingNewLine]", "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"GNIGpdf", "[", 
+     RowBox[{"r_", ",", "bb_", ",", "l_", ",", "aa_", ",", "ww_", ",", 
+      RowBox[{"prec_", ":", "150"}]}], "]"}], " ", ":=", " ", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"g", ",", "P", ",", "a", ",", "b", ",", "ll", ",", "c"}], 
+       "}"}], ",", "\n", " ", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"Count", "[", 
+           RowBox[{"r", ",", "_Integer"}], "]"}], "==", 
+          RowBox[{"Length", "[", "r", "]"}]}], " ", "&&", " ", 
+         RowBox[{"And", "@@", 
+          RowBox[{"NonNegative", "[", "r", "]"}]}], " ", "&&", " ", 
+         RowBox[{"And", "@@", 
+          RowBox[{"Positive", "[", "l", "]"}]}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"g", " ", "=", " ", 
+          RowBox[{"Length", "[", "r", "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"w", "=", 
+          RowBox[{"Rat", "[", "ww", "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"ll", "=", 
+          RowBox[{"Rat", "[", "l", "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"a", "=", 
+          RowBox[{"Rat", "[", "aa", "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"b", "=", 
+          RowBox[{"Rat", "[", "bb", "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"c", " ", "=", 
+          RowBox[{"Makec", "[", 
+           RowBox[{"r", ",", "ll", ",", "g"}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"resn", "=", 
+          RowBox[{"SetPrecision", "[", 
+           RowBox[{
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{"Hgeo", "[", 
+               RowBox[{"b", ",", 
+                RowBox[{"r", "[", 
+                 RowBox[{"[", "j", "]"}], "]"}], ",", 
+                RowBox[{
+                 RowBox[{"-", 
+                  RowBox[{"(", 
+                   RowBox[{"a", "-", 
+                    RowBox[{"ll", "[", 
+                    RowBox[{"[", "j", "]"}], "]"}]}], ")"}]}], "*", "w"}]}], 
+               "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"j", ",", "1", ",", "g"}], "}"}]}], "]"}], ",", 
+            "prec"}], "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"SetPrecision", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Product", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"ll", "[", 
+                RowBox[{"[", "j", "]"}], "]"}], "^", 
+               RowBox[{"r", "[", 
+                RowBox[{"[", "j", "]"}], "]"}]}], ",", " ", 
+              RowBox[{"{", 
+               RowBox[{"j", ",", " ", "1", ",", " ", "g"}], "}"}]}], "]"}], 
+            "*", 
+            RowBox[{"a", "^", "b"}], "*", 
+            RowBox[{"Sum", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"Exp", "[", 
+                RowBox[{
+                 RowBox[{"-", 
+                  RowBox[{"ll", "[", 
+                   RowBox[{"[", "j", "]"}], "]"}]}], "*", "w"}], "]"}], "*", 
+               RowBox[{"Sum", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"c", "[", 
+                    RowBox[{"[", "j", "]"}], "]"}], "[", 
+                   RowBox[{"[", "k", "]"}], "]"}], "*", "\n", "         ", 
+                  RowBox[{
+                   RowBox[{"Gamma", "[", "k", "]"}], "/", 
+                   RowBox[{"Gamma", "[", 
+                    RowBox[{"k", "+", "b"}], "]"}]}], "*", 
+                  RowBox[{"w", "^", 
+                   RowBox[{"(", 
+                    RowBox[{"k", "+", "b", "-", "1"}], ")"}]}], "*", 
+                  RowBox[{"resn", "[", 
+                   RowBox[{"[", 
+                    RowBox[{"j", ",", "k"}], "]"}], "]"}]}], ",", "\n", 
+                 "         ", 
+                 RowBox[{"{", 
+                  RowBox[{"k", ",", "1", ",", 
+                   RowBox[{"r", "[", 
+                    RowBox[{"[", "j", "]"}], "]"}]}], "}"}]}], "]"}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"j", ",", " ", "1", ",", " ", "g"}], "}"}]}], "]"}]}], 
+           ",", "prec"}], "]"}]}]}], "\n", " ", "]"}]}], " ", "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"GNIGcdf", "[", 
+     RowBox[{"r_", ",", "bb_", ",", "l_", ",", "aa_", ",", "ww_", ",", 
+      RowBox[{"prec_", ":", "150"}]}], "]"}], " ", ":=", " ", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "g", ",", "P", ",", "a", ",", "b", ",", "ll", ",", "c", ",", "w"}], 
+       "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"Count", "[", 
+           RowBox[{"r", ",", "_Integer"}], "]"}], "==", 
+          RowBox[{"Length", "[", "r", "]"}]}], " ", "&&", " ", 
+         RowBox[{"And", "@@", 
+          RowBox[{"NonNegative", "[", "r", "]"}]}], " ", "&&", " ", 
+         RowBox[{"And", "@@", 
+          RowBox[{"Positive", "[", "l", "]"}]}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"g", " ", "=", " ", 
+          RowBox[{"Length", "[", "r", "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"w", "=", 
+          RowBox[{"Rat", "[", "ww", "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"ll", "=", 
+          RowBox[{"Rat", "[", "l", "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"a", "=", 
+          RowBox[{"Rat", "[", "aa", "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"b", "=", 
+          RowBox[{"Rat", "[", "bb", "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"c", " ", "=", " ", 
+          RowBox[{"Makec", "[", 
+           RowBox[{"r", ",", "ll", ",", "g"}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"resn", "=", 
+          RowBox[{"SetPrecision", "[", 
+           RowBox[{
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{"Hgeo", "[", 
+               RowBox[{"b", ",", 
+                RowBox[{"r", "[", 
+                 RowBox[{"[", "j", "]"}], "]"}], ",", 
+                RowBox[{
+                 RowBox[{"-", 
+                  RowBox[{"(", 
+                   RowBox[{"a", "-", 
+                    RowBox[{"ll", "[", 
+                    RowBox[{"[", "j", "]"}], "]"}]}], ")"}]}], "*", "w"}]}], 
+               "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"j", ",", "1", ",", "g"}], "}"}]}], "]"}], ",", 
+            "prec"}], "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"SetPrecision", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{"a", "^", "b"}], "*", 
+             RowBox[{
+              RowBox[{"w", "^", "b"}], "/", 
+              RowBox[{"Gamma", "[", 
+               RowBox[{"b", "+", "1"}], "]"}]}], "*", 
+             RowBox[{"Hypergeometric1F1", "[", 
+              RowBox[{"b", ",", 
+               RowBox[{"b", "+", "1"}], ",", 
+               RowBox[{
+                RowBox[{"-", "a"}], " ", "w"}]}], "]"}]}], "-", 
+            RowBox[{
+             RowBox[{"Product", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"ll", "[", 
+                 RowBox[{"[", "j", "]"}], "]"}], "^", 
+                RowBox[{"r", "[", 
+                 RowBox[{"[", "j", "]"}], "]"}]}], ",", " ", 
+               RowBox[{"{", 
+                RowBox[{"j", ",", " ", "1", ",", " ", "g"}], "}"}]}], "]"}], 
+             "*", 
+             RowBox[{"a", "^", "b"}], "*", 
+             RowBox[{"Sum", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Exp", "[", 
+                 RowBox[{
+                  RowBox[{"-", 
+                   RowBox[{"ll", "[", 
+                    RowBox[{"[", "j", "]"}], "]"}]}], "*", "w"}], "]"}], "*", 
+                RowBox[{"Sum", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"c", "[", 
+                    RowBox[{"[", "j", "]"}], "]"}], "[", 
+                    RowBox[{"[", "k", "]"}], "]"}], "/", 
+                    RowBox[{
+                    RowBox[{"ll", "[", 
+                    RowBox[{"[", "j", "]"}], "]"}], "^", "k"}]}], "*", 
+                   RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"k", "-", "1"}], ")"}], "!"}], "*", "\n", "    ", 
+                   RowBox[{"Sum", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"w", "^", 
+                    RowBox[{"(", 
+                    RowBox[{"b", "+", "i"}], ")"}]}], "*", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"ll", "[", 
+                    RowBox[{"[", "j", "]"}], "]"}], "^", "i"}], "/", 
+                    RowBox[{"Gamma", "[", 
+                    RowBox[{"b", "+", "1", "+", "i"}], "]"}]}], "*", "\n", 
+                    "         ", 
+                    RowBox[{"resn", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"j", ",", 
+                    RowBox[{"i", "+", "1"}]}], "]"}], "]"}]}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"i", ",", "0", ",", 
+                    RowBox[{"k", "-", "1"}]}], "}"}]}], "]"}]}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"k", ",", "1", ",", 
+                    RowBox[{"r", "[", 
+                    RowBox[{"[", "j", "]"}], "]"}]}], "}"}]}], "]"}]}], ",", 
+               "\n", "         ", 
+               RowBox[{"{", 
+                RowBox[{"j", ",", " ", "1", ",", " ", "g"}], "}"}]}], 
+              "]"}]}]}], ",", "prec"}], "]"}]}]}], "\n", " ", "]"}]}], " ", 
+     "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**",
+      "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", 
+     "**", "**", "**", "**", "**", "**", "**", "**"}], "******)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", "  ", 
+    RowBox[{
+     RowBox[{
+     "Modules", " ", "used", " ", "to", " ", "build", " ", "the", " ", 
+      "near"}], "-", 
+     RowBox[{"exact", " ", "distributions"}]}], "  ", "*)"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", "  ", 
+    RowBox[{
+    "Module", " ", "used", " ", "to", " ", "compute", " ", "the", " ", 
+     "moments", " ", "associated", " ", "with", " ", "the", " ", "CF", " ", 
+     "in", " ", 
+     RowBox[{"(", "22", ")"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"MomMG", "[", 
+     RowBox[{"p_", ",", "r_", ",", "m_", ",", "h_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"c", ",", "pp"}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"c", "=", 
+        RowBox[{"Length", "[", "p", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"pp", "=", 
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{"p", "[", 
+           RowBox[{"[", "j", "]"}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"j", ",", "1", ",", "c"}], "}"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"p", "[", 
+             RowBox[{"[", "j", "]"}], "]"}], "/", 
+            RowBox[{
+             RowBox[{"m", "[", 
+              RowBox[{"[", "j", "]"}], "]"}], "^", "h"}]}], "*", 
+           RowBox[{"Product", "[", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"r", "[", 
+                RowBox[{"[", "j", "]"}], "]"}], "+", "i"}], ")"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"i", ",", "0", ",", 
+               RowBox[{"h", "-", "1"}]}], "}"}]}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"j", ",", "1", ",", "c"}], "}"}]}], "]"}], "+", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"1", "-", "pp"}], ")"}], "/", 
+          RowBox[{
+           RowBox[{"m", "[", 
+            RowBox[{"[", 
+             RowBox[{"1", "+", "c"}], "]"}], "]"}], "^", "h"}]}], "*", 
+         RowBox[{"Product", "[", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"r", "[", 
+              RowBox[{"[", 
+               RowBox[{"1", "+", "c"}], "]"}], "]"}], "+", "i"}], ")"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", "0", ",", 
+             RowBox[{"h", "-", "1"}]}], "}"}]}], "]"}]}]}]}]}], 
+     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Module", " ", "for", " ", "computation", " ", "of", " ", "the", " ", 
+     "moments", " ", "of", " ", "statistics", " ", "based", " ", "on", " ", 
+     "the", " ", "CF"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "used", " ", "to", " ", "compute", " ", "the", " ", "moments", " ", 
+     "associated", " ", "with", " ", "the", " ", "CF", " ", "in", " ", 
+     RowBox[{"(", "20", ")"}]}], "  ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Der", "[", 
+     RowBox[{"F_", ",", "nd_", ",", 
+      RowBox[{"prec2_", ":", "150"}], ",", 
+      RowBox[{"prec_", ":", "1500"}]}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"tt", ",", "yy", ",", "mm"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"tt", "=", 
+        RowBox[{"10", "^", 
+         RowBox[{"(", 
+          RowBox[{"-", "55"}], ")"}]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"yy", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"SetPrecision", "[", 
+           RowBox[{
+            RowBox[{"F", "[", "j", "]"}], ",", "prec"}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"j", ",", 
+            RowBox[{"-", "tt"}], ",", "tt", ",", 
+            RowBox[{"2", "*", 
+             RowBox[{"tt", "/", "nd"}]}]}], "}"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"mm", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{"0", ",", 
+          RowBox[{"{", 
+           RowBox[{"j", ",", "1", ",", "nd"}], "}"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Do", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"yy", "=", 
+           RowBox[{
+            RowBox[{"Drop", "[", 
+             RowBox[{"yy", ",", "1"}], "]"}], "-", 
+            RowBox[{"Drop", "[", 
+             RowBox[{"yy", ",", 
+              RowBox[{"-", "1"}]}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"yy", "=", 
+           RowBox[{"yy", "/", 
+            RowBox[{"(", 
+             RowBox[{"2", "*", 
+              RowBox[{"tt", "/", "nd"}]}], ")"}]}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"ll", "=", 
+           RowBox[{"Length", "[", "yy", "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"Mod", "[", 
+              RowBox[{"ll", ",", "2"}], "]"}], "\[Equal]", "0"}], ",", 
+            RowBox[{
+             RowBox[{"mm", "[", 
+              RowBox[{"[", "i", "]"}], "]"}], "=", 
+             RowBox[{"Re", "[", 
+              RowBox[{
+               RowBox[{"I", "^", 
+                RowBox[{"(", 
+                 RowBox[{"-", 
+                  RowBox[{"(", "i", ")"}]}], ")"}]}], "*", 
+               RowBox[{"Mean", "[", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"yy", "[", 
+                   RowBox[{"[", 
+                    RowBox[{"ll", "/", "2"}], "]"}], "]"}], ",", 
+                  RowBox[{"yy", "[", 
+                   RowBox[{"[", 
+                    RowBox[{
+                    RowBox[{"ll", "/", "2"}], "+", "1"}], "]"}], "]"}]}], 
+                 "}"}], "]"}]}], "]"}]}], ",", 
+            RowBox[{
+             RowBox[{"mm", "[", 
+              RowBox[{"[", "i", "]"}], "]"}], "=", 
+             RowBox[{"Re", "[", 
+              RowBox[{
+               RowBox[{"I", "^", 
+                RowBox[{"(", 
+                 RowBox[{"i", "-", "2"}], ")"}]}], "*", 
+               RowBox[{"yy", "[", 
+                RowBox[{"[", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"ll", "+", "1"}], ")"}], "/", "2"}], "]"}], 
+                "]"}]}], "]"}]}]}], "]"}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "1", ",", "nd"}], "}"}]}], "]"}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"SetPrecision", "[", 
+        RowBox[{
+         RowBox[{"Abs", "[", "mm", "]"}], ",", "prec2"}], "]"}]}]}], 
+     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**",
+      "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", 
+     "**", "**", "**", "**", "**", "**", "**", "**"}], "*****)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", "              ", 
+    RowBox[{
+    "Generic", " ", "modules", " ", "for", " ", "any", " ", "of", " ", "the", 
+     " ", "sampling", " ", "distributions"}], "             ", "*)"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", "  ", 
+    RowBox[{
+    "Module", " ", "used", " ", "to", " ", "read", " ", "the", " ", 
+     "parameters", " ", "for", " ", "the", " ", "distributions"}], "  ", 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ReadModule", "[", 
+     RowBox[{"p1_", ",", "p2_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", "Dist", "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Label", "[", "Start", "]"}], ";", 
+       RowBox[{"Dist", "=", 
+        RowBox[{
+        "InputString", "[", 
+         "\"\<Enter the code for the 'Sampling distribution' (valid codes are \
+'Poi', 'Bin', 'HG', 'NegBin' and 'NegHG'):\>\"", "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Which", "[", 
+        RowBox[{
+         RowBox[{"Dist", "\[Equal]", "\"\<Poi\>\""}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Label", "[", "lamb", "]"}], ";", 
+           RowBox[{"lambda", "=", 
+            RowBox[{
+            "Input", "[", 
+             "\"\<Enter the value for 'lambda' (it must be a positive value):\
+\>\"", "]"}]}], ";", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"lambda", "\[LessEqual]", "0"}], ",", 
+             RowBox[{"Goto", "[", "lamb", "]"}]}], "]"}], ";", 
+           RowBox[{"Label", "[", "tr", "]"}], ";", 
+           RowBox[{"trunc", "=", 
+            RowBox[{"Input", "[", 
+             RowBox[{
+             "\"\<Enter the value for 'trunc', the upper truncation value (it \
+must be an integer value larger than \>\"", "<>", 
+              RowBox[{"ToString", "[", 
+               RowBox[{"p1", "+", "p2"}], "]"}], "<>", "\"\<)\>\""}], "]"}]}],
+            ";", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"ToString", "[", 
+                RowBox[{"Head", "[", "trunc", "]"}], "]"}], "\[NotEqual]", 
+               "\"\<Integer\>\""}], "||", 
+              RowBox[{"trunc", "<", 
+               RowBox[{"p1", "+", "p2"}]}]}], ",", 
+             RowBox[{"Goto", "[", "tr", "]"}]}], "]"}], ";", 
+           RowBox[{"{", 
+            RowBox[{"Dist", ",", "lambda", ",", 
+             RowBox[{"p1", "+", "p2", "+", "1"}], ",", "trunc"}], "}"}]}], 
+          "}"}], ",", 
+         RowBox[{"Dist", "\[Equal]", "\"\<Bin\>\""}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Label", "[", "nbin", "]"}], ";", 
+           RowBox[{"ns", "=", 
+            RowBox[{
+            "Input", "[", 
+             "\"\<Enter the value for n* (it must be an integer larger than \
+0):\>\"", "]"}]}], ";", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"ToString", "[", 
+                RowBox[{"Head", "[", "ns", "]"}], "]"}], "\[NotEqual]", 
+               "\"\<Integer\>\""}], "||", 
+              RowBox[{"ns", "\[LessEqual]", "0"}]}], ",", 
+             RowBox[{"Goto", "[", "nbin", "]"}]}], "]"}], ";", 
+           RowBox[{"Label", "[", "pbin", "]"}], ";", 
+           RowBox[{"ps", "=", 
+            RowBox[{
+            "Input", "[", 
+             "\"\<Enter the value for p* (it must be a value between 0 and \
+1):\>\"", "]"}]}], ";", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"ps", "\[LessEqual]", "0"}], "||", 
+              RowBox[{"ps", "\[GreaterEqual]", "1"}]}], ",", 
+             RowBox[{"Goto", "[", "pbin", "]"}]}], "]"}], ";", 
+           RowBox[{"{", 
+            RowBox[{"Dist", ",", "ns", ",", "ps", ",", 
+             RowBox[{"p1", "+", "p2", "+", "1"}], ",", "ns"}], "}"}]}], "}"}],
+          ",", 
+         RowBox[{"Dist", "\[Equal]", "\"\<HG\>\""}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Label", "[", "NsHG", "]"}], ";", 
+           RowBox[{"Ns", "=", 
+            RowBox[{
+            "Input", "[", 
+             "\"\<Enter the value for N* (it must be an integer larger than \
+0):\>\"", "]"}]}], ";", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"ToString", "[", 
+                RowBox[{"Head", "[", "Ns", "]"}], "]"}], "\[NotEqual]", 
+               "\"\<Integer\>\""}], "||", 
+              RowBox[{"Ns", "\[LessEqual]", "0"}]}], ",", 
+             RowBox[{"Goto", "[", "NsHG", "]"}]}], "]"}], ";", 
+           RowBox[{"Label", "[", "rHG", "]"}], ";", 
+           RowBox[{"r", "=", 
+            RowBox[{
+            "Input", "[", 
+             "\"\<Enter the value for r (it must be an integer larger than 0 \
+but smaller than N*):\>\"", "]"}]}], ";", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"ToString", "[", 
+                RowBox[{"Head", "[", "r", "]"}], "]"}], "\[NotEqual]", 
+               "\"\<Integer\>\""}], "||", 
+              RowBox[{"r", "\[LessEqual]", "0"}], "||", 
+              RowBox[{"r", "\[GreaterEqual]", "Ns"}]}], ",", 
+             RowBox[{"Goto", "[", "rHG", "]"}]}], "]"}], ";", 
+           RowBox[{"Label", "[", "nHG", "]"}], ";", 
+           RowBox[{"ns", "=", 
+            RowBox[{
+            "Input", "[", 
+             "\"\<Enter the value for n* (it must be an integer larger than 0 \
+but smaller than N*):\>\"", "]"}]}], ";", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"ToString", "[", 
+                RowBox[{"Head", "[", "ns", "]"}], "]"}], "\[NotEqual]", 
+               "\"\<Integer\>\""}], "||", 
+              RowBox[{"ns", "\[LessEqual]", "0"}], "||", 
+              RowBox[{"ns", "\[GreaterEqual]", "Ns"}]}], ",", 
+             RowBox[{"Goto", "[", "nHG", "]"}]}], "]"}], ";", 
+           RowBox[{"{", 
+            RowBox[{"Dist", ",", "Ns", ",", "r", ",", "ns", ",", 
+             RowBox[{"Max", "[", 
+              RowBox[{
+               RowBox[{"ns", "+", "r", "-", "Ns"}], ",", 
+               RowBox[{"p1", "+", "p2", "+", "1"}]}], "]"}], ",", 
+             RowBox[{"Min", "[", 
+              RowBox[{"r", ",", "ns"}], "]"}]}], "}"}]}], "}"}], ",", 
+         RowBox[{"Dist", "\[Equal]", "\"\<NegBin\>\""}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Label", "[", "rnegbin", "]"}], ";", 
+           RowBox[{"r", "=", 
+            RowBox[{
+            "Input", "[", 
+             "\"\<Enter the value for r (it must be an integer larger than \
+0):\>\"", "]"}]}], ";", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"ToString", "[", 
+                RowBox[{"Head", "[", "r", "]"}], "]"}], "\[NotEqual]", 
+               "\"\<Integer\>\""}], "||", 
+              RowBox[{"r", "\[LessEqual]", "0"}]}], ",", 
+             RowBox[{"Goto", "[", "rnegbin", "]"}]}], "]"}], ";", 
+           RowBox[{"Label", "[", "pnegbin", "]"}], ";", 
+           RowBox[{"ps", "=", 
+            RowBox[{
+            "Input", "[", 
+             "\"\<Enter the value for p* (it must be a value between 0 and \
+1):\>\"", "]"}]}], ";", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"ps", "\[LessEqual]", "0"}], "||", 
+              RowBox[{"ps", "\[GreaterEqual]", "1"}]}], ",", 
+             RowBox[{"Goto", "[", "pnegbin", "]"}]}], "]"}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Label", "[", "trNegBin", "]"}], ";", 
+           RowBox[{"trunc", "=", 
+            RowBox[{"Input", "[", 
+             RowBox[{
+             "\"\<Enter the value for 'trunc', the upper truncation value (it \
+must be an integer value larger than \>\"", "<>", 
+              RowBox[{"ToString", "[", 
+               RowBox[{"p1", "+", "p2"}], "]"}], "<>", "\"\<)\>\""}], "]"}]}],
+            ";", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"ToString", "[", 
+                RowBox[{"Head", "[", "trunc", "]"}], "]"}], "\[NotEqual]", 
+               "\"\<Integer\>\""}], "||", 
+              RowBox[{"trunc", "<", 
+               RowBox[{"p1", "+", "p2"}]}]}], ",", 
+             RowBox[{"Goto", "[", "trNegBin", "]"}]}], "]"}], ";", 
+           RowBox[{"{", 
+            RowBox[{"Dist", ",", "r", ",", "ps", ",", 
+             RowBox[{"p1", "+", "p2", "+", "1"}], ",", "trunc"}], "}"}]}], 
+          "}"}], ",", 
+         RowBox[{"Dist", "\[Equal]", "\"\<NegHG\>\""}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Label", "[", "NsNegHG", "]"}], ";", 
+           RowBox[{"Ns", "=", 
+            RowBox[{
+            "Input", "[", 
+             "\"\<Enter the value for N* (it must be an integer larger than \
+0):\>\"", "]"}]}], ";", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"ToString", "[", 
+                RowBox[{"Head", "[", "Ns", "]"}], "]"}], "\[NotEqual]", 
+               "\"\<Integer\>\""}], "||", 
+              RowBox[{"Ns", "\[LessEqual]", "0"}]}], ",", 
+             RowBox[{"Goto", "[", "NsNegHG", "]"}]}], "]"}], ";", 
+           RowBox[{"Label", "[", "rNegHG", "]"}], ";", 
+           RowBox[{"r", "=", 
+            RowBox[{
+            "Input", "[", 
+             "\"\<Enter the value for r (it must be an integer larger than 0 \
+but smaller than N*):\>\"", "]"}]}], ";", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"ToString", "[", 
+                RowBox[{"Head", "[", "r", "]"}], "]"}], "\[NotEqual]", 
+               "\"\<Integer\>\""}], "||", 
+              RowBox[{"r", "\[LessEqual]", "0"}], "||", 
+              RowBox[{"r", "\[GreaterEqual]", "Ns"}]}], ",", 
+             RowBox[{"Goto", "[", "rNegHG", "]"}]}], "]"}], ";", 
+           RowBox[{"Lable", "[", "kNegHG", "]"}], ";", 
+           RowBox[{"k", "=", 
+            RowBox[{
+            "Input", "[", 
+             "\"\<Enter the value for k (it must be an integer larger than 0 \
+but smaller than r):\>\"", "]"}]}], ";", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"ToString", "[", 
+                RowBox[{"Head", "[", "k", "]"}], "]"}], "\[NotEqual]", 
+               "\"\<Integer\>\""}], "||", 
+              RowBox[{"k", "\[LessEqual]", "0"}], "||", 
+              RowBox[{"k", "\[GreaterEqual]", "r"}]}], ",", 
+             RowBox[{"Goto", "[", "rNegHG", "]"}]}], "]"}], ";", 
+           RowBox[{"{", 
+            RowBox[{"Dist", ",", "Ns", ",", "r", ",", "k", ",", 
+             RowBox[{"p1", "+", "p2", "+", "1"}], ",", "r"}], "}"}]}], "}"}], 
+         ",", "True", ",", 
+         RowBox[{"Goto", "[", "Start", "]"}]}], "]"}]}]}], "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "Module", " ", "used", " ", "to", " ", "compute", " ", "the", " ", 
+      "exact", " ", "CDF", " ", "and", " ", "p"}], "-", 
+     RowBox[{
+     "values", " ", "for", " ", "the", " ", "case", " ", "of", " ", "even", 
+      " ", "p1", " ", "or", " ", "even", " ", "p22", " ", "for", " ", "any", 
+      " ", "sampling", " ", "distribution"}], " ", "-", " ", 
+     RowBox[{"see", " ", "Theorem", " ", "2.1"}]}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ExCDFRSSEven", "[", 
+     RowBox[{"p1_", ",", "p2_", ",", "p22_", ",", "x_", ",", 
+      RowBox[{"prec_", ":", "150"}]}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"rj", ",", "p21", ",", "linf", ",", "lsup"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"vec", "=", 
+        RowBox[{
+         RowBox[{"ReadModule", "[", 
+          RowBox[{"p1", ",", "p2"}], "]"}], "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"linf", "=", 
+        RowBox[{
+         RowBox[{"Take", "[", 
+          RowBox[{"vec", ",", 
+           RowBox[{"{", 
+            RowBox[{"-", "2"}], "}"}]}], "]"}], "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"lsup", "=", 
+        RowBox[{
+         RowBox[{"Take", "[", 
+          RowBox[{"vec", ",", 
+           RowBox[{"-", "1"}]}], "]"}], "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"xr", "=", 
+        RowBox[{"Rat", "[", "x", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"rj", "=", 
+        RowBox[{"RjEven", "[", 
+         RowBox[{"p1", ",", "p22"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"p21", "=", 
+        RowBox[{"p2", "-", "p22"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"weights", "=", 
+        RowBox[{"Which", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"vec", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", "\"\<Poi\>\""}], ",", 
+          RowBox[{"PMFPoi", "[", 
+           RowBox[{
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], ",", "i", ",", "p1", ",", "p2"}],
+            "]"}], ",", 
+          RowBox[{
+           RowBox[{"vec", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", "\"\<Bin\>\""}], ",", 
+          RowBox[{"PMFBin", "[", 
+           RowBox[{
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], ",", 
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "3", "]"}], "]"}], ",", "i", ",", "p1", ",", "p2"}],
+            "]"}], ",", 
+          RowBox[{
+           RowBox[{"vec", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", "\"\<HG\>\""}], ",", 
+          RowBox[{"PMFHG", "[", 
+           RowBox[{
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], ",", 
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "3", "]"}], "]"}], ",", 
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "4", "]"}], "]"}], ",", "i", ",", "p1", ",", "p2"}],
+            "]"}], ",", 
+          RowBox[{
+           RowBox[{"vec", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", "\"\<NegBin\>\""}], 
+          ",", 
+          RowBox[{"PMFNegBin", "[", 
+           RowBox[{
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], ",", 
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "3", "]"}], "]"}], ",", "i", ",", "p1", ",", "p2"}],
+            "]"}], ",", 
+          RowBox[{
+           RowBox[{"vec", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", "\"\<NegHG\>\""}], 
+          ",", 
+          RowBox[{"PMFNegHG", "[", 
+           RowBox[{
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], ",", 
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "3", "]"}], "]"}], ",", 
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "4", "]"}], "]"}], ",", "i", ",", "p1", ",", "p2"}],
+            "]"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"1", "-", 
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{"weights", "*", 
+           RowBox[{"GIGcdf", "[", 
+            RowBox[{"rj", ",", 
+             RowBox[{"LjEven", "[", 
+              RowBox[{"p1", ",", "p2", ",", "p22", ",", "i"}], "]"}], ",", 
+             RowBox[{"-", 
+              RowBox[{"Log", "[", "xr", "]"}]}], ",", "prec"}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "linf", ",", "lsup"}], "}"}]}], "]"}]}]}]}], 
+     "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      StyleBox["ExCDFRSSEven",
+       FontWeight->"Bold"], "::", "usage"}], "=", 
+     "\"\<ExCDFRSSEven[p1, p2, p22, x, prec] computes the value for the exact \
+CDF or p-value for the partial Lambda for the random sample size case for any \
+of the sampling distributions in the paper, for even p1 or even p22;\n\
+arguments are (in this order):\n\!\(\*StyleBox[\"p1\",FontWeight->\"Bold\"]\) \
+- the number of variables of the 1st set\n\
+\!\(\*StyleBox[\"p2\",FontWeight->\"Bold\"]\) - the number of variables of \
+the 2nd set\np22 - the number of variables in X2 that were taken out in the \
+submodel \n\!\(\*StyleBox[\"x\",FontWeight->\"Bold\"]\) - the value of Lambda \
+for which we want to compute the CDF or p-value\n\
+\!\(\*StyleBox[\"prec\",FontWeight->\"Bold\"]\) - an optional argument \
+setting the number of precision digits for the computation of the GNIG CDF \
+(default value: 150)\>\""}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "Module", " ", "used", " ", "to", " ", "compute", " ", "the", " ", 
+      "near"}], "-", 
+     RowBox[{"exact", " ", "CDF", " ", "and", " ", "p"}], "-", 
+     RowBox[{
+     "values", " ", "for", " ", "the", " ", "case", " ", "of", " ", "even", 
+      " ", "p1", " ", "or", " ", "even", " ", "p22", " ", "for", " ", "any", 
+      " ", "sampling", " ", "distribution"}], " ", "-", " ", 
+     RowBox[{"see", " ", "Theorem", " ", "2.2"}]}], " ", "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"NECDFRSSOdd", "[", 
+     RowBox[{"p1_", ",", "p2_", ",", "p22_", ",", "ms_", ",", "x_", ",", 
+      RowBox[{"prec_", ":", "150"}]}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "rj", ",", "p21", ",", "pi", ",", "pin", ",", "xr", ",", "linf", ",", 
+        "lsup"}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"vec", "=", 
+        RowBox[{
+         RowBox[{"ReadModule", "[", 
+          RowBox[{"p1", ",", "p2"}], "]"}], "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"linf", "=", 
+        RowBox[{
+         RowBox[{"Take", "[", 
+          RowBox[{"vec", ",", 
+           RowBox[{"{", 
+            RowBox[{"-", "2"}], "}"}]}], "]"}], "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"lsup", "=", 
+        RowBox[{
+         RowBox[{"Take", "[", 
+          RowBox[{"vec", ",", 
+           RowBox[{"-", "1"}]}], "]"}], "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"xr", "=", 
+        RowBox[{"Rat", "[", "x", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"rj", "=", 
+        RowBox[{"RjOdd", "[", 
+         RowBox[{"p1", ",", "p22"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"p21", "=", 
+        RowBox[{"p2", "-", "p22"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"pi", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"MakeWeights", "[", 
+           RowBox[{"i", ",", "p1", ",", "p2", ",", "p22", ",", "ms"}], "]"}], 
+          ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "linf", ",", "lsup"}], "}"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"pin", "=", 
+        RowBox[{"Join", "[", 
+         RowBox[{"pi", ",", 
+          RowBox[{"Makeveccol", "[", 
+           RowBox[{"1", "-", 
+            RowBox[{"Total", "[", 
+             RowBox[{"Transpose", "[", "pi", "]"}], "]"}]}], "]"}], ",", 
+          "2"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"weights", "=", 
+        RowBox[{"Which", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"vec", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", "\"\<Poi\>\""}], ",", 
+          RowBox[{"PMFPoi", "[", 
+           RowBox[{
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], ",", "i", ",", "p1", ",", "p2"}],
+            "]"}], ",", 
+          RowBox[{
+           RowBox[{"vec", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", "\"\<Bin\>\""}], ",", 
+          RowBox[{"PMFBin", "[", 
+           RowBox[{
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], ",", 
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "3", "]"}], "]"}], ",", "i", ",", "p1", ",", "p2"}],
+            "]"}], ",", 
+          RowBox[{
+           RowBox[{"vec", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", "\"\<HG\>\""}], ",", 
+          RowBox[{"PMFHG", "[", 
+           RowBox[{
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], ",", 
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "3", "]"}], "]"}], ",", 
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "4", "]"}], "]"}], ",", "i", ",", "p1", ",", "p2"}],
+            "]"}], ",", 
+          RowBox[{
+           RowBox[{"vec", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", "\"\<NegBin\>\""}], 
+          ",", 
+          RowBox[{"PMFNegBin", "[", 
+           RowBox[{
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], ",", 
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "3", "]"}], "]"}], ",", "i", ",", "p1", ",", "p2"}],
+            "]"}], ",", 
+          RowBox[{
+           RowBox[{"vec", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", "\"\<NegHG\>\""}], 
+          ",", 
+          RowBox[{"PMFNegHG", "[", 
+           RowBox[{
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], ",", 
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "3", "]"}], "]"}], ",", 
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "4", "]"}], "]"}], ",", "i", ",", "p1", ",", "p2"}],
+            "]"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"1", "-", 
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{"weights", "*", 
+           RowBox[{"Sum", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"pin", "[", 
+                RowBox[{"[", 
+                 RowBox[{"i", "-", "linf", "+", "1"}], "]"}], "]"}], "[", 
+               RowBox[{"[", 
+                RowBox[{"k", "+", "1"}], "]"}], "]"}], "*", 
+              RowBox[{"GNIGcdf", "[", 
+               RowBox[{"rj", ",", 
+                RowBox[{
+                 RowBox[{"1", "/", "2"}], "+", "k"}], ",", 
+                RowBox[{"LjOdd", "[", 
+                 RowBox[{"p1", ",", "p2", ",", "p22", ",", "i"}], "]"}], ",", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"i", "-", "p21", "-", "2"}], ")"}], "/", "2"}], ",", 
+                RowBox[{"-", 
+                 RowBox[{"Log", "[", "xr", "]"}]}], ",", "prec"}], "]"}]}], 
+             ",", 
+             RowBox[{"{", 
+              RowBox[{"k", ",", "0", ",", "ms"}], "}"}]}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "linf", ",", "lsup"}], "}"}]}], "]"}]}]}]}], 
+     "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"NECDFRSSOdd", "::", "usage"}], "=", 
+     "\"\<NECDFRSSOdd[p1, p2, p22, ms, x, prec] computes the value for the \
+exact CDF or p-value for the partial Lambda for the random sample size case \
+for any of the sampling distributions in the paper, for even p1 or even p22;\n\
+arguments are (in this order):\n\!\(\*StyleBox[\"p1\",FontWeight->\"Bold\"]\) \
+- the number of variables of the 1st set\n\
+\!\(\*StyleBox[\"p2\",FontWeight->\"Bold\"]\) - the number of variables of \
+the 2nd set\np22 - the number of variables in X2 that were taken out in the \
+submodel \nms - number of moments of log(Lambda) to be matched by the \
+near-exact distribution\n\!\(\*StyleBox[\"x\",FontWeight->\"Bold\"]\) - the \
+value of Lambda for which we want to compute the CDF or p-value\n\
+\!\(\*StyleBox[\"prec\",FontWeight->\"Bold\"]\) - an optional argument \
+setting the number of precision digits for the computation of the GNIG CDF \
+(default value: 150)\>\""}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Module", " ", "to", " ", "compute", " ", "the", " ", "exact", " ", "CDF",
+      " ", "of", " ", 
+     RowBox[{"(", 
+      RowBox[{"non", "-", "partial"}], ")"}], " ", "Lambda", " ", "for", " ", 
+     "the", " ", "random", " ", "sample", " ", "size", " ", 
+     RowBox[{"case", " ", "--"}], " ", "even", " ", "p1", " ", "or", " ", 
+     "even", " ", "p2"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"used", " ", "to", " ", "compute", " ", "p"}], "-", 
+     RowBox[{"values", " ", "for", " ", "the", " ", "fit", " ", "of", " ", 
+      RowBox[{"the", " ", "'"}], 
+      RowBox[{"global", "'"}], " ", "model"}], " ", "-", " ", 
+     RowBox[{"for", " ", "any", " ", "sampling", " ", "distribution"}]}], " ",
+     "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ExCDFOrigRSSEven", "[", 
+     RowBox[{"p1_", ",", "p2_", ",", "x_", ",", 
+      RowBox[{"prec_", ":", "150"}]}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "rj", ",", "p21", ",", "pi", ",", "pin", ",", "xr", ",", "linf", ",", 
+        "lsup"}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"vec", "=", 
+        RowBox[{
+         RowBox[{"ReadModule", "[", 
+          RowBox[{"p1", ",", "p2"}], "]"}], "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"linf", "=", 
+        RowBox[{
+         RowBox[{"Take", "[", 
+          RowBox[{"vec", ",", 
+           RowBox[{"{", 
+            RowBox[{"-", "2"}], "}"}]}], "]"}], "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"lsup", "=", 
+        RowBox[{
+         RowBox[{"Take", "[", 
+          RowBox[{"vec", ",", 
+           RowBox[{"-", "1"}]}], "]"}], "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"xr", "=", 
+        RowBox[{"Rat", "[", "x", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"rj", "=", 
+        RowBox[{"RjEven", "[", 
+         RowBox[{"p1", ",", "p2"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"weights", "=", 
+        RowBox[{"Which", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"vec", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", "\"\<Poi\>\""}], ",", 
+          RowBox[{"PMFPoi", "[", 
+           RowBox[{
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], ",", "i", ",", "p1", ",", "p2"}],
+            "]"}], ",", 
+          RowBox[{
+           RowBox[{"vec", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", "\"\<Bin\>\""}], ",", 
+          RowBox[{"PMFBin", "[", 
+           RowBox[{
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], ",", 
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "3", "]"}], "]"}], ",", "i", ",", "p1", ",", "p2"}],
+            "]"}], ",", 
+          RowBox[{
+           RowBox[{"vec", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", "\"\<HG\>\""}], ",", 
+          RowBox[{"PMFHG", "[", 
+           RowBox[{
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], ",", 
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "3", "]"}], "]"}], ",", 
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "4", "]"}], "]"}], ",", "i", ",", "p1", ",", "p2"}],
+            "]"}], ",", 
+          RowBox[{
+           RowBox[{"vec", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", "\"\<NegBin\>\""}], 
+          ",", 
+          RowBox[{"PMFNegBin", "[", 
+           RowBox[{
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], ",", 
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "3", "]"}], "]"}], ",", "i", ",", "p1", ",", "p2"}],
+            "]"}], ",", 
+          RowBox[{
+           RowBox[{"vec", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", "\"\<NegHG\>\""}], 
+          ",", 
+          RowBox[{"PMFNegHG", "[", 
+           RowBox[{
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], ",", 
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "3", "]"}], "]"}], ",", 
+            RowBox[{"vec", "[", 
+             RowBox[{"[", "4", "]"}], "]"}], ",", "i", ",", "p1", ",", "p2"}],
+            "]"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"1", "-", 
+        RowBox[{"Sum", "[", 
+         RowBox[{
+          RowBox[{"weights", "*", 
+           RowBox[{"GIGcdf", "[", 
+            RowBox[{"rj", ",", 
+             RowBox[{"Lj", "[", 
+              RowBox[{"p1", ",", "p2", ",", "i"}], "]"}], ",", 
+             RowBox[{"-", 
+              RowBox[{"Log", "[", "xr", "]"}]}], ",", "prec"}], "]"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "linf", ",", "lsup"}], "}"}]}], "]"}]}]}]}], 
+     "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      StyleBox["ExCDFOrigRSSEven",
+       FontWeight->"Bold"], "::", "usage"}], "=", 
+     "\"\<\!\(\*StyleBox[\"ExCDFOrigRSSEven\",FontWeight->\"Bold\"]\)[p1, p2, \
+x, prec] computes the value for the exact CDF or p-value for the non-partial \
+Lambda for the random sample size case for any of the sampling distributions \
+in the paper, for even p1 or even p22;\narguments are (in this order):\n\
+\!\(\*StyleBox[\"p1\",FontWeight->\"Bold\"]\) - the number of variables of \
+the 1st set\n\!\(\*StyleBox[\"p2\",FontWeight->\"Bold\"]\) - the number of \
+variables of the 2nd set\n\!\(\*StyleBox[\"x\",FontWeight->\"Bold\"]\) - the \
+value of Lambda for which we want to compute the CDF or p-value\n\
+\!\(\*StyleBox[\"prec\",FontWeight->\"Bold\"]\) - an optional argument \
+setting the number of precision digits for the computation of the GNIG CDF \
+(default value: 150)\>\""}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**",
+      "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", 
+     "**", "**", "**", "**", "**", "**", "**", "**", "**"}], 
+    "*****)"}]}]}]], "Input",
+ CellChangeTimes->{{3.994928480324314*^9, 3.99492848206948*^9}, {
+   3.9949286397530527`*^9, 3.994928651399268*^9}, {3.9949287520492*^9, 
+   3.9949287535127044`*^9}, {3.994928835066598*^9, 3.994928904248613*^9}, {
+   3.994931879350563*^9, 3.9949319179380493`*^9}, {3.994933289442156*^9, 
+   3.9949332962876263`*^9}, 3.9949335989599304`*^9, 3.994933855924692*^9, {
+   3.9949341020990486`*^9, 3.9949341083770256`*^9}, {3.99493425301585*^9, 
+   3.9949342826856804`*^9}, {3.9949343409490185`*^9, 
+   3.9949343599696712`*^9}, {3.994934468169359*^9, 3.9949344699372025`*^9}, {
+   3.9949345181490993`*^9, 3.9949346027190304`*^9}, {3.9949349248213825`*^9, 
+   3.9949349252283993`*^9}, {3.9949350195835094`*^9, 
+   3.9949350780410824`*^9}, {3.994935679487261*^9, 3.9949357184473953`*^9}, {
+   3.994935805415224*^9, 3.9949359144203625`*^9}, {3.9949359695272007`*^9, 
+   3.9949360468096046`*^9}, {3.9949363428356094`*^9, 
+   3.9949363942894955`*^9}, {3.9949364319460144`*^9, 3.994936432428007*^9}, {
+   3.9949365875336857`*^9, 3.994936588445818*^9}, {3.994936655272484*^9, 
+   3.994936657076954*^9}, {3.994936688930748*^9, 3.9949367603497677`*^9}, 
+   3.9949368142558155`*^9, {3.9949369457364807`*^9, 3.9949370868515015`*^9}, {
+   3.9949371269483624`*^9, 3.994937145699465*^9}, {3.994937194641037*^9, 
+   3.994937367549179*^9}, {3.9949785860221386`*^9, 3.9949786106336937`*^9}, {
+   3.994978672910797*^9, 3.994979043548271*^9}, {3.994979141932785*^9, 
+   3.9949794972080708`*^9}, 3.9949795337988167`*^9, {3.9949795656501255`*^9, 
+   3.994979628540924*^9}, {3.994979670650116*^9, 3.99497975153755*^9}, 
+   3.9949798032143345`*^9, {3.9950041080151176`*^9, 3.9950041769178963`*^9}, {
+   3.995004212875278*^9, 3.9950044104780583`*^9}, {3.9950048337026834`*^9, 
+   3.9950048557779427`*^9}, {3.995004958160364*^9, 3.9950049636619844`*^9}, {
+   3.995005038007926*^9, 3.995005063946658*^9}, 3.9950050963515396`*^9, 
+   3.9950051536957393`*^9, {3.997337420264656*^9, 3.9973375321587677`*^9}, 
+   3.997337618782923*^9, 3.9974104026137867`*^9, {3.9974104404723053`*^9, 
+   3.9974108481964445`*^9}, 
+   3.9974108923748555`*^9},ExpressionUUID->"30e7f816-1b90-4c03-86aa-\
+44ef8533ddab"]
+},
+WindowSize->{901, 804},
+WindowMargins->{{Automatic, -1}, {-6, Automatic}},
+FrontEndVersion->"11.2 for Microsoft Windows (64-bit) (September 10, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 168990, 3979, 15856, "Input",ExpressionUUID->"30e7f816-1b90-4c03-86aa-44ef8533ddab"]
+}
+]
+*)
+
